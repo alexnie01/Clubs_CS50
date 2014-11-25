@@ -16,8 +16,8 @@ Date Selection for Deadlines
         <title>clubs.cs50.net</title>
     </head>
     <body style="text-align: center;">
-        <form action="homepage.php" method="post"> 
-            <input type="text" name="name" placeholder="Search Clubs and Organizations"><br>
+        <form action="index.php" method="post"> 
+            <input type="text" name="category" placeholder="Search Clubs and Organizations"><br>
             <br/>
             <select>
                 <option value="All Categories" selected>All Categories</option>
@@ -38,14 +38,14 @@ Date Selection for Deadlines
         </select>
             <br/>
         <select>
-                <option value="Size" selected>Size</option>
+                <option value="size" selected>Size</option>
                 <option value="0-50">Small</option>
                 <option value="51-100">Medium</option>
                 <option value="101-200">Large</option>
                 <option value="200+">XLarge</option>
         </select>
             <br/>
-            <input name="NoComp" type="checkbox"/> No Comp Process?
+            <input name="nocomp" type="checkbox"/> No Comp Process?
             <br/>
         <select>
                 <option value="Leadership Process" selected>Leadership Process</option>
@@ -54,11 +54,11 @@ Date Selection for Deadlines
                 <option value="Other">Other</option>
         </select>
             <br/>
-             <input type="text" name="MinHours" placeholder="Minimum Number of Hours"><br>
+             <input type="text" name="minhours" placeholder="Minimum Number of Hours"><br>
             <br/>
-            <input type="text" name="MaxHours" placeholder="Maximum Number of Hours"><br>
+            <input type="text" name="maxhours" placeholder="Maximum Number of Hours"><br>
             <br/>
-            Latest Deadline: <input type="date" name="Latest Deadline"></form>
+            Latest Deadline: <input type="deadline" name="Latest Deadline"></form>
             <br/>
         </form>
     </body>
