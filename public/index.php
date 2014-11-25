@@ -3,7 +3,7 @@
     // configuration
     require("../includes/config.php"); 
 
-    // render portfolio
+    // rendering script
     render("portfolio.php", ["title" => "Portfolio"]);
 
 ?>
