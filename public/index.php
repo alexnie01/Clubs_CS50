@@ -3,8 +3,6 @@
     // configuration
     require("../includes/config.php"); 
 
-    <?php
-
     // configuration
     require_once(dirname(__FILE__) . "/config.php");
 
