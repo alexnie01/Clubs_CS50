@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- This is Alex testing -->
 <!--
-Search
+Inputted Search
 Dropdown Category
 Dropdown Size
-Checkbox Box Comp Process
+Checkbox Box No Comp Process
 Dropdown Leadership Process
 Inputted MinHours
 Inputted MaxHours
@@ -17,9 +16,9 @@ Date Selection for Deadlines
     </head>
     <body style="text-align: center;">
         <form action="index.php" method="post"> 
-            <input type="text" name="category" placeholder="Search Clubs and Organizations"><br>
+            <input type="text" name="search" placeholder="Search Clubs and Organizations"><br>
             <br/>
-            <select>
+            <select name = "category">
                 <option value="All Categories" selected>All Categories</option>
                 <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
                 <option value="College Life">College Life</option>
@@ -37,7 +36,7 @@ Date Selection for Deadlines
                 <option value="Women's Initiatives">Women's Initiatives</option>
         </select>
         <br/>
-        <select name = size>
+        <select name = "size">
                 <option value="0" selected>All Sizes</option>
                 <option value="1">0-50</option>
                 <option value="2">51-100</option>
@@ -46,6 +45,7 @@ Date Selection for Deadlines
                 <option value="5">200+</option>
         </select>
         <br/>
+        // fix check box "yes" "no"
         <input name="nocomp" type="checkbox" value = "nocomp"/> No Comp Process?
         <br/>
         <select name = "leadership">
