@@ -3,14 +3,13 @@
     /**
      * constants.php
      *
-     * Computer Science 50
-     * Problem Set 7
+     * Computer Science 50 Database constants
      *
      * Global constants.
      */
 
     // your database's name
-    define("DATABASE", "pset7");
+    define("DATABASE", "clubs");
 
     // your database's password
     define("PASSWORD", "crimson");
