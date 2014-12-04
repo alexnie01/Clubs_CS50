@@ -25,6 +25,12 @@ DROP TABLE IF EXISTS `clubs`;
 CREATE TABLE `clubs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Size` tinyint(4) NOT NULL DEFAULT '1',
+  `Comp` tinyint(1) NOT NULL DEFAULT '0',
+  `Leadership` int(11) NOT NULL DEFAULT '0',
+  `Max Hour` decimal(10,0) NOT NULL DEFAULT '100',
+  `Min Hour` decimal(10,0) NOT NULL DEFAULT '0',
+  `Deadline` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +41,7 @@ CREATE TABLE `clubs` (
 
 LOCK TABLES `clubs` WRITE;
 /*!40000 ALTER TABLE `clubs` DISABLE KEYS */;
-INSERT INTO `clubs` VALUES (1,'Crimson'),(2,'Harvard Financial Analyst Club');
+INSERT INTO `clubs` VALUES (1,'Crimson',2,1,0,100,0,NULL),(2,'Harvard Financial Analyst Club',4,1,1,10,1,NULL);
 /*!40000 ALTER TABLE `clubs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,4 +101,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-25 15:39:12
+-- Dump completed on 2014-12-03 22:00:03

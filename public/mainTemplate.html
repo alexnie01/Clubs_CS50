@@ -36,35 +36,30 @@ Date Selection for Deadlines
                 <option value="Religious & Spiritual">Religious & Spiritual</option>
                 <option value="Women's Initiatives">Women's Initiatives</option>
         </select>
-        <br/>
-        <select name = size>
-                <option value="0" selected>All Sizes</option>
-                <option value="1">0-50</option>
-                <option value="2">51-100</option>
-                <option value="3">101-150</option>
-                <option value="4">151-200</option>
-                <option value="5">200+</option>
+            <br/>
+        <select>
+                <option value="size" selected>0-50</option>
+                <option value="0-50">51-100</option>
+                <option value="51-100">101-150</option>
+                <option value="101-200">151-200</option>
+                <option value="200+">200+</option>
         </select>
-        <br/>
-        <input name="nocomp" type="checkbox" value = "nocomp"/> No Comp Process?
-        <br/>
-        <select name = "leadership">
-                <option value="0" selected>Leadership Process</option>
-                <option value="1">Elected</option>
-                <option value="2">Applications</option>
-                <option value="3">Other</option>
+            <br/>
+            <input name="nocomp" type="checkbox" value = "nocomp"/> No Comp Process?
+            <br/>
+        <select>
+                <option value="All Leadership Process" selected>Leadership Process</option>
+                <option value="Elected">Elected</option>
+                <option value="Applications">Applications</option>
+                <option value="Other">Other</option>
         </select>
-        <br/>
-        <input type="text" name="minhours" placeholder="Minimum Number of Hours"><br>
-        <br/>
-        <input type="text" name="maxhours" placeholder="Maximum Number of Hours"><br>
-        <br/>
-        <input type="deadline" name="Furthest Deadline" placeholder="Furthest Deadline"></form>
-        <br/>
-        <input type="submit" value = "Search!">
+            <br/>
+             <input type="text" name="minhours" placeholder="Minimum Number of Hours"><br>
+            <br/>
+            <input type="text" name="maxhours" placeholder="Maximum Number of Hours"><br>
+            <br/>
+            <input type="deadline" name="Latest Deadline" placeholder="Latest Deadline"></form>
+            <br/>
         </form>
-        
-        // Ajax
-        <script type="text/javascript"> 
-
+    </body>
 </html>
