@@ -23,16 +23,15 @@ DROP TABLE IF EXISTS `clubs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `clubs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Size` tinyint(4) NOT NULL DEFAULT '1',
-  `Comp` tinyint(1) NOT NULL DEFAULT '0',
-  `Leadership` int(11) NOT NULL DEFAULT '0',
-  `Max Hour` decimal(10,0) NOT NULL DEFAULT '100',
-  `Min Hour` decimal(10,0) NOT NULL DEFAULT '0',
-  `Deadline` date DEFAULT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `size` tinyint(4) NOT NULL,
+  `comp` tinyint(1) NOT NULL DEFAULT '0',
+  `avg hours` decimal(3,0) NOT NULL,
+  `leadership` tinyint(4) NOT NULL,
+  `deadline` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='deadline refers to any critical deadline';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +40,7 @@ CREATE TABLE `clubs` (
 
 LOCK TABLES `clubs` WRITE;
 /*!40000 ALTER TABLE `clubs` DISABLE KEYS */;
-INSERT INTO `clubs` VALUES (1,'Crimson',2,1,0,100,0,NULL),(2,'Harvard Financial Analyst Club',4,1,1,10,1,NULL);
+INSERT INTO `clubs` VALUES (1,'Crimson',3,1,5,2,'2014-12-16'),(2,'Harvard Financial Analyst Club',4,1,2,1,'2014-12-31');
 /*!40000 ALTER TABLE `clubs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,6 +69,79 @@ INSERT INTO `division` VALUES (1,1,0);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `history`
+--
+
+DROP TABLE IF EXISTS `history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `history` (
+  `user_id` int(10) NOT NULL,
+  `id` int(10) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `history`
+--
+
+LOCK TABLES `history` WRITE;
+/*!40000 ALTER TABLE `history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `info`
+--
+
+DROP TABLE IF EXISTS `info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `info` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `website` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `contact` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `meeting time` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `meeting place` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `info`
+--
+
+LOCK TABLES `info` WRITE;
+/*!40000 ALTER TABLE `info` DISABLE KEYS */;
+/*!40000 ALTER TABLE `info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `interests`
+--
+
+DROP TABLE IF EXISTS `interests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `interests` (
+  `user_id` int(10) DEFAULT NULL,
+  `id` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `interests`
+--
+
+LOCK TABLES `interests` WRITE;
+/*!40000 ALTER TABLE `interests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `interests` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tags`
 --
 
@@ -91,6 +163,29 @@ LOCK TABLES `tags` WRITE;
 INSERT INTO `tags` VALUES (1,'Journalism');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -101,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-03 22:00:03
+-- Dump completed on 2014-12-04  3:07:10
