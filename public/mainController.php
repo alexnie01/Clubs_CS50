@@ -100,9 +100,10 @@
         //debugging:
         foreach($searchresults as $row) {
             foreach($row as $element){
-                console.log($searchresults[$rows[$element]].", ");
+                echo("<script>console.log('PHP: ".json_encode($searchresults[$rows[$element]].", ")."');</script>");
+                console.log();
             }
-            console.log("\n");
+            echo("<script>console.log('PHP: "."\n"."');</script>");
         }
     }
        
