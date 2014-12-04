@@ -24,19 +24,85 @@
         
         // make inputted values all lowercase
         $search = array_map('strtolower', $search)
-               
-        //check that the stock symbol exists and that the number of shares to be sold is not more than shares owned
-        if((XXXX)
+        
+        if($search == "")
         {
-            //insert into MySQL
-            $result=query("INSERT INTO tablesXX () VALUES (?,?,?)");
-            
-            //return to portfolio page
-            redirect("index.php");
-            
-        } else
+            $search = "*";
+        }
+        
+        if($category == "All Categories")
         {
-            Apologize("Search is invalid.");
+            $category = "*";
+        }
+        
+        if($size == "All Sizes")
+        {
+            $size = "*";
+        }
+        
+        if($nocomp == "no")
+        {
+            $nocomp = "*";
+        }
+                
+        if($maxhours == "")
+        {
+            $maxhours = 1000;
+        }
+          
+        if($minhours == "")
+        {
+            $maxhours = 0;
+        }  
+        
+        if($deadline == "")
+        {
+            $deadline = "*";
+        }    
+        
+        if($category == "")
+        {
+            $category = "*";
+        } 
+       
+        // insert into MySQL
+        $searchresult=query("SELECT clubs.* FROM JOIN (clubs, divisions, tags) WHERE (
+            MATCH(clubs.name) AGAINST (? WITH QUERY EXPANSION) 
+            AND clubs.size = ? 
+            AND clubs.leadership = ? 
+            AND clubs.comp  = ? 
+            AND clubs.avghours <= ? 
+            AND clubs.avghours >= ? 
+            AND clubs.deadline >= ?
+            AND division.category = ? 
+            AND MATCH(tags.tag) AGAINST (? WITH QUERY EXPANSION) 
+            AND clubs.id = division.id 
+            AND clubs.id = tags.id)", 
+            $search, $size, $leadership, $nocomp, $maxhours, $minhours, $deadline, $category, $search);
+            
+        // retrieve function: given a $table variable and $user_id, retrieve from this $table
+        function retrieve($table, $user_id) {
+            return query("SELECT clubs.* FROM JOIN (users, ?) WHERE (
+            ?.user_id = ? AND
+            ?.id = clubs.id AND"),
+            $table, $table, $SESSION("id"), $table);
+            }
+            
+        // deletion funtion
+        function deletions($table) {
+            return query("DELETE FROM ?.user_id = ? AND ?.id = ?"),
+            $table, $user_id, $table, $id);
+            }
+            
+        //return to mainTemplate page
+        render("../templates/mainTemplate.html", ["searchhistory" => $searchhistory, ..]);
+            
+        //debugging:
+        foreach($searchresults as $row) {
+            foreach($row as $element){
+                console.log($searchresults[$rows[$element]].", ");
+            }
+            console.log("\n");
         }
     }
        
