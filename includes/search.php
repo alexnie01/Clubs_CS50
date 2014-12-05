@@ -1,19 +1,35 @@
 <?php
-
-    require(__DIR__ . "/../includes/config.php");
-
-    // numerically indexed array of places
-    $places = [];
-
-    // searches database using WITH QUERY EXPANSION to order results by relevance.
-    $matches = query("SELECT * FROM places WHERE MATCH (postal_code, place_name, admin_name1, admin_code1, country_code) AGAINST (? WITH QUERY EXPANSION) LIMIT 20", $_GET["geo"]);
+    /* 
+     * Contains all functions related to SQL database querying:
+     * info on clubs, user lookup, My Interest/Club's I'm In retrieval, updates
+     * and removals.
+     */
     
-    foreach ($matches as $match)
+    // need import for SQL query function mostly
+    require("config.php");
+    
+    // returns complete info of all clubs matching intial search conditions
+    function search($hahaha)
     {
-        array_push($places, $match);
+        //return query("SELECT clubs.* FROM JOIN(clubs, tags) WHERE
+        
     }
-    // output places as JSON (pretty-printed for debugging convenience)
-    header("Content-type: application/json");
-    print(json_encode($places, JSON_PRETTY_PRINT));
+    
+    // user registration
+    function register($username, $password)
+    {
+        // inserts new user: automatically assigned auto-incremented user_id
+        return query("INSERT INTO users (username, password) VALUES (?, ?)", $username, $password);
+    }
+    
+    // verifies that user is in database and inputted correct password
+    function login($username, $password)
+    {
+        return query("SELECT user_id FROM users WHERE username = ? AND password = ?", $username, $password);
+    }
+    
+    
+    
+    
 
 ?>
