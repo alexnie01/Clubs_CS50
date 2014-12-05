@@ -45,30 +45,6 @@ INSERT INTO `clubs` VALUES (1,'Crimson',3,1,5,2,'2014-12-16'),(2,'Harvard Financ
 UNLOCK TABLES;
 
 --
--- Table structure for table `division`
---
-
-DROP TABLE IF EXISTS `division`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `division` (
-  `id` int(11) DEFAULT NULL,
-  `Academic` tinyint(1) NOT NULL DEFAULT '0',
-  `College Life` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `division`
---
-
-LOCK TABLES `division` WRITE;
-/*!40000 ALTER TABLE `division` DISABLE KEYS */;
-INSERT INTO `division` VALUES (1,1,0);
-/*!40000 ALTER TABLE `division` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `history`
 --
 
@@ -160,7 +136,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Journalism');
+INSERT INTO `tags` VALUES (1,'Journalism'),(1,'Academic'),(2,'Pre-Professiona'),(2,'Finance');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,6 +150,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `username` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -196,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-04  3:07:10
+-- Dump completed on 2014-12-04 20:53:47
