@@ -27,10 +27,11 @@ CREATE TABLE `clubs` (
   `name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `size` tinyint(4) NOT NULL,
   `comp` tinyint(1) NOT NULL DEFAULT '0',
-  `avg hours` decimal(3,0) NOT NULL,
+  `avghours` decimal(3,0) NOT NULL,
   `leadership` tinyint(4) NOT NULL,
   `deadline` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FULLTEXT KEY `name` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='deadline refers to any critical deadline';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -125,9 +126,10 @@ DROP TABLE IF EXISTS `tags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tags` (
-  `id` int(11) DEFAULT NULL,
-  `tag` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `id` int(10) NOT NULL,
+  `tag` text COLLATE utf8_unicode_ci NOT NULL,
+  FULLTEXT KEY `tag` (`tag`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +138,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Journalism'),(1,'Academic'),(2,'Pre-Professiona'),(2,'Finance');
+INSERT INTO `tags` VALUES (1,'Academics'),(2,'Fun'),(1,'\'Journalism\'');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,4 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-05  1:38:58
+-- Dump completed on 2014-12-05  3:57:17
