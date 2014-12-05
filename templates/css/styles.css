@@ -3,3 +3,17 @@
     color: blue;
     background-color: red;
 }
+
+table, .row {
+                display: block;
+                max-width:90%;
+                margin-left:1%; 
+            }
+            table, .row {
+                display: block;
+                max-width:90%;
+                margin-left:1%; 
+            }
+            .top-buffer { 
+                margin-top:20px; 
+            }
