@@ -23,6 +23,7 @@
         
         //return to mainTemplate page
         render("../templates/resultsTemplate.html", ["search_results" => $search_results]);
+        
         /*    
         //debugging:
         foreach($search_results as $row) {

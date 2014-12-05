@@ -3,6 +3,9 @@
 
     // configuration
     require("../includes/config.php"); 
+    
+    // import SQL query functionality
+    require("../includes/search.php");
 
     // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
@@ -25,7 +28,7 @@
         }
 
         // query database for user
-        $rows = query("SELECT * FROM userst WHERE userid = ?", $_POST["username"]);
+        $rows = lookup_user($_POST["username"], $_POST["password"]);
 
         // if we found user, check password
         if (count($rows) == 1)

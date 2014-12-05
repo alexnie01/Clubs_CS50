@@ -3,7 +3,7 @@
     /**
      * functions.php
      *
-     * Helper functions ripped from Pet 7:
+     * Helper functions ripped from Pset 7:
      * apologize, dump, query, redirect, render
      *
      * 
