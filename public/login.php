@@ -40,7 +40,7 @@
                 $_SESSION["id"] = $row["user_id"];
 
                 // redirect
-                redirect("/");
+                redirect("mainController.php");
             }
         }
 

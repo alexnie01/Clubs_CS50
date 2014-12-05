@@ -6,7 +6,7 @@
     // if user reached via GET
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        render("index.php", ["title" => "Search"]);
+        render("../templates/mainTemplate.html", ["title" => "Search"]);
     }
     
     // else if user reached page via POST (as by submitting a form via POST)
