@@ -16,114 +16,127 @@ Date Selection for Deadlines
     </head>
     <body style="text-align: center;">
 
-        <form class="form-horizontal">
-        <fieldset>
-
-        <!-- Form Name -->
-        <legend></legend>
-
-        <!-- Text input-->
-        <div class="control-group">
-          <label class="control-label" for="search"></label>
-          <div class="controls">
-            <input id="search" name="search" type="text" placeholder="Search Clubs and Organizations" class="input-xlarge">
+        <div class = "container-fluid">
             
-          </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="control-group">
-          <label class="control-label" for="category"></label>
-          <div class="controls">
-            <select id="category" name="category" class="input-xlarge">
-              <option>All Categories</option>
-              <option>Academic &amp; Pre-Professional</option>
-              <option>College Life</option>
-              <option>Creative &amp; Performing Arts</option>
-              <option>Cultural &amp; Racial Initiatives</option>
-              <option>Departmental</option>
-              <option>Gender &amp; Sexuality</option>
-              <option>Government &amp; Politics</option>
-              <option>Health &amp; Wellness</option>
-              <option>Hobbies/Special Interests</option>
-              <option>Media &amp; Publications</option>
-              <option>Peer Counseling/Peer Education</option>
-              <option>Public Service</option>
-              <option>Religious &amp; Spiritual</option>
-              <option>Women's Initiatives</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="control-group">
-          <label class="control-label" for="size"></label>
-          <div class="controls">
-            <select id="size" name="size" class="input-xlarge">
-              <option>All Sizes</option>
-              <option>0-50</option>
-              <option>51-100</option>
-              <option>101-150</option>
-              <option>151-200</option>
-              <option>200+</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Multiple Checkboxes -->
-        <div class="control-group">
-          <label class="control-label" for="nocomp"></label>
-          <div class="controls">
-            <label class="checkbox" for="nocomp-0">
-              <input type="checkbox" name="nocomp" id="nocomp-0" value="No Comp">
-              No Comp
-            </label>
-          </div>
-        </div>
-
-        <!-- Select Basic -->
-        <div class="control-group">
-          <label class="control-label" for="leadership"></label>
-          <div class="controls">
-            <select id="leadership" name="leadership" class="input-xlarge">
-              <option>All Leadership Processes</option>
-              <option>Elected</option>
-              <option>Applications</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="control-group">
-          <label class="control-label" for="minhours"></label>
-          <div class="controls">
-            <input id="minhours" name="minhours" type="text" placeholder="Max Hours/Week" class="input-xlarge">
+            <form class="form-horizontal">
+            <fieldset>
+                
+            <div class = "row">
             
-          </div>
+                <div class="col-xs-3">
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label" for="search"></label>
+                      <div class="controls">
+                        <input id="search" name="search" type="text" placeholder="Search Clubs and Organizations" class="input-xlarge">
+                        
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="col-xs-3">
+                    <!-- Select Basic -->
+                    <div class="control-group">
+                      <label class="control-label" for="category"></label>
+                      <div class="controls">
+                        <select id="category" name="category" class="input-xlarge">
+                          <option>All Categories</option>
+                          <option>Academic &amp; Pre-Professional</option>
+                          <option>College Life</option>
+                          <option>Creative &amp; Performing Arts</option>
+                          <option>Cultural &amp; Racial Initiatives</option>
+                          <option>Departmental</option>
+                          <option>Gender &amp; Sexuality</option>
+                          <option>Government &amp; Politics</option>
+                          <option>Health &amp; Wellness</option>
+                          <option>Hobbies/Special Interests</option>
+                          <option>Media &amp; Publications</option>
+                          <option>Peer Counseling/Peer Education</option>
+                          <option>Public Service</option>
+                          <option>Religious &amp; Spiritual</option>
+                          <option>Women's Initiatives</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <!-- Select Basic -->
+                    <div class="control-group">
+                      <label class="control-label" for="size"></label>
+                      <div class="controls">
+                        <select id="size" name="size" class="input-xlarge">
+                          <option>All Sizes</option>
+                          <option>0-50</option>
+                          <option>51-100</option>
+                          <option>101-150</option>
+                          <option>151-200</option>
+                          <option>200+</option>
+                        </select>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-3">
+                    <!-- NoComp Checkboxes -->
+                    <div class="control-group">
+                      <label class="control-label" for="nocomp"></label>
+                      <div class="controls">
+                        <label class="checkbox" for="nocomp-0">
+                          <input type="checkbox" name="nocomp" id="nocomp-0" value="No Comp">
+                          No Comp
+                        </label>
+                      </div>
+                    </div>
+                </div>
+                
+            </div> <!-- End Row -->
+
+            <!-- Leadership Process Select -->
+            <div class="control-group">
+              <label class="control-label" for="leadership"></label>
+              <div class="controls">
+                <select id="leadership" name="leadership" class="input-xlarge">
+                  <option>All Leadership Processes</option>
+                  <option>Elected</option>
+                  <option>Applications</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Maxhours Text input-->
+            <div class="control-group">
+              <label class="control-label" for="minhours"></label>
+              <div class="controls">
+                <input id="minhours" name="minhours" type="text" placeholder="Max Hours/Week" class="input-xlarge">
+                
+              </div>
+            </div>
+
+            <!-- Minhours Text input-->
+            <div class="control-group">
+              <label class="control-label" for="minhours"></label>
+              <div class="controls">
+                <input id="minhours" name="minhours" type="text" placeholder="Min Hours/Week" class="input-xlarge">
+                
+              </div>
+            </div>
+
+            <!-- Deadilne Text input-->
+            <div class="control-group">
+              <label class="control-label" for="deadline"></label>
+              <div class="controls">
+                <input id="deadline" name="deadline" type="text" placeholder="Furthest Deadline" class="input-xlarge">
+                
+              </div>
+            </div>
+
+            </fieldset>
+            </form>
+
+
         </div>
-
-        <!-- Text input-->
-        <div class="control-group">
-          <label class="control-label" for="minhours"></label>
-          <div class="controls">
-            <input id="minhours" name="minhours" type="text" placeholder="Min Hours/Week" class="input-xlarge">
-            
-          </div>
-        </div>
-
-        <!-- Text input-->
-        <div class="control-group">
-          <label class="control-label" for="deadline"></label>
-          <div class="controls">
-            <input id="deadline" name="deadline" type="text" placeholder="Furthest Deadline" class="input-xlarge">
-            
-          </div>
-        </div>
-
-        </fieldset>
-        </form>
-
 
     </body>
 </html>
