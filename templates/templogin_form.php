@@ -1,3 +1,4 @@
+<script type = "text/javascript" src="/js/login.js"></script>
 <form action="login.php" method="post">
     <fieldset>
         <div class="form-group">
