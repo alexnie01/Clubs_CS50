@@ -1,8 +1,5 @@
 
 <?php
-
-    // configuration
-    require("../includes/config.php"); 
     
     // import SQL query functionality
     require("../includes/search.php");
