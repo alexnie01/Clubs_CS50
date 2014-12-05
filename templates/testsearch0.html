@@ -18,21 +18,77 @@ Date Selection for Deadlines
             
         table {
         display: block;
-        width:30%; 
-        margin-left:2.5%; 
-        margin-right:2.5%;
+        width:70%; 
+        margin-left:2%; 
         }
 
         </style>
     </head>
 
     <body>
-     
+            <div class="container-fluid">
+            <h2>Harvard Clubs</h2>
+            <form class="form-inline" role="form"action="../public/mainController.php" method="post">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search" placeholder="Search Clubs">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="category">
+                    <option value="All Categories" selected>All Categories</option>
+                        <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
+                        <option value="College Life">College Life</option>
+                        <option value="Creative & Performing Arts">Creative & Performing Arts</option>
+                        <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
+                        <option value="Departmental">Departmental</option>
+                        <option value="Gender & Sexuality">Gender & Sexuality</option>
+                        <option value="Government & Politics">Government & Politics</option>
+                        <option value="Health & Wellness">Health & Wellness</option>
+                        <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
+                        <option value="Media & Publications">Media & Publications</option>
+                        <option value="Peer Counseling/Peer Education">Peer Counseling/Peer Education</option>
+                        <option value="Public Service">Public Service</option>
+                        <option value="Religious & Spiritual">Religious & Spiritual</option>
+                        <option value="Women's Initiatives">Women's Initiatives</option>
+                  </select>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox"> No Comp </label>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="size">
+                        <option value="0" selected>All Sizes</option>
+                        <option value="1">0-50</option>
+                        <option value="2">101-150</option>
+                        <option value="3">101-150</option>
+                        <option value="4">151-200</option>
+                        <option value="5">200+</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="leadership">
+                        <option value="0" selected>All Leadership Processes</option>
+                        <option value="1">Elected</option>
+                        <option value="2">Applications</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="minhours" placeholder="Minimum Hours/Week">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="maxhours" placeholder="Maximum Hours/Week">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="deadline" placeholder="Furthest Deadline" min="2000-01-02">
+                </div>
+                <button class="btn btn-large btn-primary" type="button">Search</button>
+            </form>
+        </div> <!-- end of fluid-container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- Create table -->
-        <table class="table table-bordered table-hover" width = "50%">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>Club</th>
