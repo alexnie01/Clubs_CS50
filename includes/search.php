@@ -8,11 +8,77 @@
     // need import for SQL query function mostly
     require("config.php");
     
-    /** returns complete info of all clubs matching intial search conditions
-     *  need to pass in all divisions and tags as $tags array
-     */
-    function search($query, $size, $comp, $hours, $leadership, $deadline, $tags)
+    // prep user-input for searching
+    function prep_search()
+    {
+        // standard values for variables user entered into mainTemplate
+        $search = $_POST["search"];
+        $divisions = [$_POST["category"]];
+        $size = $_POST["size"];
+        $leadership = ($_POST["leadership"]);
+        $min_hours = $_POST["min_hours"];
+        $max_hours = $_POST["max_hours"];
+        $deadline = $_POST["deadline"];
+        
+        // wildcard returns all clubs regardless of comp, so default returns all clubs
+        $comp = '*';
+        
+        // casework for entries without user input
+        
+        if($search == "")
+        {
+            $search = "*";
+        }
+        
+        /**
+         * checks if user actually entered a specific category. If yes, uses wildcard
+         * so that all categories will be matched upon SQL query
+         */
+        if($_POST["category"] == "All Categories")
+        {
+            $divisions = ['*'];
+        }
+        
+        if($size == "All Sizes")
+        {
+            $size = "*";
+        }
+        // checks if user wants only clubs with no comp
+        if($_POST["nocomp"] == "yes")
+        {
+            $comp = "false";
+        }
+                
+        if($max_hours == "")
+        {
+            // assumed no clubs would have >1000 hours per week since 24*7 << 1000
+            $max_hours = 1000;
+        }
+          
+        if($min_hours == "")
+        {
+            // returns all clubs since they must have non-negative hour commitment
+            $min_hours = 0;
+        }  
+        
+        if($deadline == "")
+        {
+            $deadline = "*";
+        }    
+        
+        if($category == "")
+        {
+            $category = "*";
+        }
+        
+        // return search information
+        return search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions);
+    }
     
+    /** returns complete info of all clubs matching intial search conditions
+     *  need to pass in all divisions and tags as $divisions array (optional fuure implementation)
+     */
+    function search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
     {
         // array to store all results
         $results = [];
@@ -22,7 +88,7 @@
          * Then iterates through that table and returns subset of that with single tag match.
          * After all of this, returns array of unique results.
          */
-        foreach($tags as $tag)
+        foreach($divisions as $division)
         {
             // stores lookup for one tag
             $result = array_unique(query("SELECT clubs.* FROM JOIN clubs ON tags WHERE
@@ -34,7 +100,7 @@
                 clubs.leadership = ? AND
                 clubs.deadline = ? AND
                 MATCH (tags.tag) AGAINST (?* WITH QUERY EXPANSION)", 
-                $query, $size, $comp, $hours, $hours, $leadership, $deadline, $tag));
+                $query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $division));
             
             // push each club in the query result into $results
             foreach($result as $club)
