@@ -3,6 +3,9 @@
 
     // configuration
     require("../includes/config.php"); 
+    
+    // import SQL query functionality
+    require("../includes/search.php");
 
     // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
