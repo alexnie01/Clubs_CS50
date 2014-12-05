@@ -1,8 +1,5 @@
 
 <?php
-
-    // configuration
-    require("../includes/config.php"); 
     
     // import SQL query functionality
     require("../includes/search.php");
@@ -37,12 +34,12 @@
             $row = $rows[0];
 
             // compare hash of user's input against hash that's in database
-            if (crypt($_POST["password"], $row["hash"]) == $row["hash"])
+            if ($_POST["password"] == $row["password"])
             {
                 // remember that user's now logged in by storing user's ID in session
-                $_SESSION["id"] = $row["id"];
+                $_SESSION["id"] = $row["user_id"];
 
-                // redirect to portfolio
+                // redirect
                 redirect("/");
             }
         }

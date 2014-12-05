@@ -145,7 +145,7 @@
     // verifies that user is in database and inputted correct password. Can also be used for lookups
     function lookup_user($username, $password)
     {
-        return query("SELECT user_id FROM users WHERE username = ? AND password = ?", $username, $password);
+        return query("SELECT user_id, password FROM users WHERE username = ? AND password = ?", $username, $password);
     }
     
     /** Deletes user from database. Checked that user was in database even though logged in to make sure
