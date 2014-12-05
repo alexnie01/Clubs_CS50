@@ -9,10 +9,10 @@
     require("config.php");
     
     // prep user-input for searching
-    function prep_search()
+    function universal_search()
     {
         // standard values for variables user entered into mainTemplate
-        $search = $_POST["search"];
+        $search = $_POST["search"].'*';
         $divisions = [$_POST["category"]];
         $size = $_POST["size"];
         $leadership = ($_POST["leadership"]);
@@ -90,18 +90,26 @@
          */
         foreach($divisions as $division)
         {
+            $comp = true;
+            $min_hours = 0;
+            $max_hours = 100;
+            $leadership = 2;
+            $deadline = '*';
             // stores lookup for one tag
-            $result = array_unique(query("SELECT clubs.* FROM JOIN clubs ON tags WHERE
-                MATCH AGAINST (clubs.name, tags.tag) AGAINST (?* WITH QUERY EXPANSION) AND
+            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id)"));
+            /*
+            WHERE
+                MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION) OR
+                MATCH (tags.tag) AGAINST (? WITH QUERY EXPANSION) AND
                 clubs.size = ? AND
                 clubs.comp = ? AND
                 clubs.avghours <= ? AND
                 clubs.avghours >= ? AND
                 clubs.leadership = ? AND
-                clubs.deadline = ? AND
-                MATCH (tags.tag) AGAINST (?* WITH QUERY EXPANSION)", 
-                $query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $division));
-            
+                (clubs.deadline = 1 OR TRUE) AND
+                MATCH (tags.tag) AGAINST (? WITH QUERY EXPANSION)", 
+                $query, $query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $division));
+            */
             // push each club in the query result into $results
             foreach($result as $club)
             {
