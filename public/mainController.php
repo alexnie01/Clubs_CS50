@@ -3,6 +3,7 @@
     // configuration
     require("../includes/config.php");
     
+    
     // if user reached via POST
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {

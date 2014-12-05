@@ -29,11 +29,12 @@
                 MATCH AGAINST (clubs.name, tags.tag) AGAINST (?* WITH QUERY EXPANSION) AND
                 clubs.size = ? AND
                 clubs.comp = ? AND
-                clubs.hours = ? AND
+                clubs.avghours <= ? AND
+                clubs.avghours >= ? AND
                 clubs.leadership = ? AND
                 clubs.deadline = ? AND
                 MATCH (tags.tag) AGAINST (?* WITH QUERY EXPANSION)", 
-                $query, $size, $comp, $hours, $leadership, $deadline, $tag));
+                $query, $size, $comp, $hours, $hours, $leadership, $deadline, $tag));
             
             // push each club in the query result into $results
             foreach($result as $club)
@@ -50,6 +51,23 @@
         
         return array_unique($results);
     }
+    // add club to special tables: interest, history or club's I'm in by club_id
+    function add_special($table, $user_id, $club_id)
+    {
+        // history needs special stuff, but is same for now
+        if($table = "history")
+        {
+            return query("INSERT INTO history (user_id, id) VALUES (?, ?)", $user_id, $club_id);
+        }
+        
+        return query("INSERT INTO ? (user_id, id) VALUES (?, ?)", $user_id, $club_id);
+    }
+    
+    // deletes a club from special table
+    function remove_special($table, $user_id, $club_id)
+    {
+        return query("DELETE FROM ? WHERE ?.user_id = ? AND ?.id = ?", $user_id, $club_id);
+    }
     
     // user registration
     function register($username, $password)
@@ -58,8 +76,8 @@
         return query("INSERT INTO users (username, password) VALUES (?, ?)", $username, $password);
     }
     
-    // verifies that user is in database and inputted correct password
-    function login_check($username, $password)
+    // verifies that user is in database and inputted correct password. Can also be used for lookups
+    function lookup_user($username, $password)
     {
         return query("SELECT user_id FROM users WHERE username = ? AND password = ?", $username, $password);
     }
@@ -68,7 +86,7 @@
      *  multiple requests cannot be submitted. Automaticaly logs out afterwards. Returns -1 if error, 0 
      * upon success.
      */
-    function delete_user($user_id, $password)
+    function delete_user($user_id)
     {
         $user_info = query("SELECT user_id FROM users WHERE user_id = ?", $user_id);
         
