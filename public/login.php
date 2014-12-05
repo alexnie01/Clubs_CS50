@@ -25,7 +25,7 @@
         }
 
         // query database for user
-        $rows = query("SELECT * FROM userst WHERE userid = ?", $_POST["username"]);
+        $rows = lookup_user($_POST["username"], $_POST["password"]);
 
         // if we found user, check password
         if (count($rows) == 1)
