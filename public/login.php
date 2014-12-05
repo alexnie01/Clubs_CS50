@@ -1,19 +1,51 @@
+
 <?php
 
     // configuration
-    require("../includes/config.php");
+    require("../includes/config.php"); 
 
-    // if user is already logged in, redirect to index.php
-    if (isset($_SESSION["user"]))
+    // if user reached page via GET (as by clicking a link or via redirect)
+    if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        $protocol = (isset($_SERVER["HTTPS"])) ? "https" : "http";
-        $host  = $_SERVER["HTTP_HOST"];
-        $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
-        header("Location: {$protocol}://{$host}{$path}/index.php");
+        // else render form
+        render("templogin_form.php", ["title" => "Log In"]);
     }
 
-    // else redirect user to CS50 ID
-    else
-        header("Location: " . CS50::getLoginUrl(TRUST_ROOT, RETURN_TO));
+    // else if user reached page via POST (as by submitting a form via POST)
+    else if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        // validate submission
+        if (empty($_POST["username"]))
+        {
+            apologize("You must provide your username.");
+        }
+        else if (empty($_POST["password"]))
+        {
+            apologize("You must provide your password.");
+        }
+
+        // query database for user
+        $rows = query("SELECT * FROM users WHERE userid = ?", $_POST["username"]);
+
+        // if we found user, check password
+        if (count($rows) == 1)
+        {
+            // first (and only) row
+            $row = $rows[0];
+
+            // compare hash of user's input against hash that's in database
+            if (crypt($_POST["password"], $row["hash"]) == $row["hash"])
+            {
+                // remember that user's now logged in by storing user's ID in session
+                $_SESSION["id"] = $row["id"];
+
+                // redirect to portfolio
+                redirect("/");
+            }
+        }
+
+        // else apologize
+        apologize("Invalid username and/or password.");
+    }
 
 ?>
