@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Search
+Dropdown Category
+Dropdown Size
+Checkbox Box Comp Process
+Dropdown Leadership Process
+Inputted MinHours
+Inputted MaxHours
+Date Selection for Deadlines
+-->
+
+<html>
+    <head>
+        <title>clubs.cs50.net</title>
+    </head>
+    <body style="text-align: center;">
+        <form action="index.php" method="post"> 
+            <input type="text" name="category" placeholder="Search Clubs and Organizations"><br>
+            <br/>
+            <select>
+                <option value="All Categories" selected>All Categories</option>
+                <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
+                <option value="College Life">College Life</option>
+                <option value="Creative & Performing Arts">Creative & Performing Arts</option>
+                <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
+                <option value="Departmental">Departmental</option>
+                <option value="Gender & Sexuality">Gender & Sexuality</option>
+                <option value="Government & Politics">Government & Politics</option>
+                <option value="Health & Wellness">Health & Wellness</option>
+                <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
+                <option value="Media & Publications">Media & Publications</option>
+                <option value="Peer Conseling/Peer Education">Peer Conseling/Peer Education</option>
+                <option value="Public Service">Public Service</option>
+                <option value="Religious & Spiritual">Religious & Spiritual</option>
+                <option value="Women's Initiatives">Women's Initiatives</option>
+        </select>
+            <br/>
+        <select>
+                <option value="size" selected>0-50</option>
+                <option value="0-50">51-100</option>
+                <option value="51-100">101-150</option>
+                <option value="101-200">151-200</option>
+                <option value="200+">200+</option>
+        </select>
+            <br/>
+            <input name="nocomp" type="checkbox" value = "nocomp"/> No Comp Process?
+            <br/>
+        <select>
+                <option value="All Leadership Process" selected>Leadership Process</option>
+                <option value="Elected">Elected</option>
+                <option value="Applications">Applications</option>
+                <option value="Other">Other</option>
+        </select>
+            <br/>
+             <input type="text" name="minhours" placeholder="Minimum Number of Hours"><br>
+            <br/>
+            <input type="text" name="maxhours" placeholder="Maximum Number of Hours"><br>
+            <br/>
+            <input type="deadline" name="Latest Deadline" placeholder="Latest Deadline"></form>
+            <br/>
+        </form>
+    </body>
+</html>
