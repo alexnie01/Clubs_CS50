@@ -16,7 +16,7 @@ Date Selection for Deadlines
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <style>
             
-        table {
+        table, .row {
         display: block;
         max-width:90%; 
         margin-left:1%; 
@@ -30,10 +30,10 @@ Date Selection for Deadlines
             <h2>Harvard Clubs</h2>
             <form class="form-inline" role="form"action="../public/mainController.php" method="post">
                 <div class = "row" >
-                    <div class="form-group">
+                    <div class="form-group border col-md-4">
                       <input type="text" class="form-control" id="search" placeholder="Search Clubs">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group border col-md-4">
                       <select class="form-control" id="category">
                         <option value="All Categories" selected>All Categories</option>
                             <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
@@ -52,12 +52,10 @@ Date Selection for Deadlines
                             <option value="Women's Initiatives">Women's Initiatives</option>
                       </select>
                     </div>
-                    <div class="checkbox">
+                    <div class="checkbox border col-md-2">
                       <label><input type="checkbox"> No Comp </label>
                     </div>
-                </div>
-                <div class = "row">
-                    <div class="form-group">
+                    <div class="form-group border col-md-2">
                         <select class="form-control" id="size">
                             <option value="0" selected>All Sizes</option>
                             <option value="1">0-50</option>
@@ -67,7 +65,9 @@ Date Selection for Deadlines
                             <option value="5">200+</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                </div>
+                <div class = "row">
+                    <div class="form-group border col-md-3">
                         <select class="form-control" id="leadership">
                             <option value="0" selected>All Leadership Processes</option>
                             <option value="1">Elected</option>
@@ -75,16 +75,16 @@ Date Selection for Deadlines
                             <option value="3">Other</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group border col-md-3">
                         <input type="text" class="form-control" id="minhours" placeholder="Minimum Hours/Week">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group border col-md-3">
                         <input type="text" class="form-control" id="maxhours" placeholder="Maximum Hours/Week">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group border col-md-2">
                         <input type="date" class="form-control" id="deadline" placeholder="Furthest Deadline" min="2000-01-02">
                     </div>
-                    <button class="btn btn-large btn-primary" type="button">Search</button>
+                    <button class="btn btn-large btn-primary border col-md-1" type="button">Search</button>
                 </div>
             </form>
         </div> <!-- end of fluid-container -->
