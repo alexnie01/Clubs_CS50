@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
     // configuration
@@ -16,6 +17,7 @@
     <title>CS50 Clubs</title>
   </head>
   <body>
+     <!-- Code below can be used if we implement CS50 ID
     <?php 
     
         if (isset($_SESSION["user"]))
@@ -29,8 +31,10 @@
         }
         else
             echo "You are not logged in.  <a href='login.php'>Log in</a>.";
-
+  
       ?>
+    //-->
+
     </ul>
   </body>
 </html>
