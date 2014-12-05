@@ -6,7 +6,7 @@
     // if user reached via GET
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        render("../templates/mainTemplate.html", ["title" => "Search"]);
+        render("testsearch0.html", ["title" => "Search"]);
         print("GET request received");
 
     }
