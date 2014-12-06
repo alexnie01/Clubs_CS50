@@ -145,6 +145,32 @@ Date Selection for Deadlines
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                 </tr>
+                <?php foreach ($searchresults as $result) { ?>
+                <tr>
+                    <td class = "ellipsis"><? = $result[] ?></td>
+                    <td class = "ellipsis"><? = $result[]; ?></td>
+                    <td><? = $result[]; ?></td>
+                    <td><? = $result[]; ?></td>
+                    <td><? = $result[]; ?></td>
+                    <td><? = $result[]; ?></td>
+                    <td><? = $result[]; }?></td>
+                </tr>
+                <tr>
+                <?php          
+                    foreach ($searchresults as $result)
+                    {
+                        print("<tr>");
+                        print("<td class = \"ellipsis\">{$result["name"]}</td>");
+                        print("<td class = \"ellipsis\">{$result["category"]}</td>");
+                        print("<td>{$result["size"]}</td>");
+                        print("<td>{$result["hours"]}</td>");
+                        print("<td>{$result["nocomp"]}</td>");
+                        print("<td>{$result["leadership"]}</td>");
+                        print("<td>{$result["deadline"]}</td>");
+                        print("</tr>");
+                    }
+                ?>
+                </tr>    
             </tbody>
         </table>
         <script>sortable.init();</script>  
