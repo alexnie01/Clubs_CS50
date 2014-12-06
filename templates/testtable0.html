@@ -6,8 +6,7 @@
     <h1>My First Heading</h1>
 
     <p>My first paragraph.</p>
-    <?php $searchresults=[["a","b","c","d","e","f","g","h"],["i","j","k","l","m","n","o","p"]];?>
-    <?php print("A"); ?>
+
     <?php print($searchresults[0][0]); ?>
         <table class="table table-bordered table-hover container-fluid">
             <thead>
@@ -21,18 +20,8 @@
                     <th>Application Deadline</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <?php foreach ($searchresults as $result) { ?>
-                        <td><?= $result[0]; ?></td>
-                        <td><?= $result[1]; ?></td>
-                        <td><?= $result[2]; ?></td>
-                        <td><?= $result[3]; ?></td>
-                        <td><?= $result[4]; ?></td>
-                        <td><?= $result[5]; ?></td>
-                        <td><?= $result[6]; }?></td>
-                </tr>    
-            </tbody>
+            
+
         </table>
 
     </body>
