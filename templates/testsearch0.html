@@ -63,7 +63,7 @@ Date Selection for Deadlines
                                 <option value="3">31-50</option>
                                 <option value="4">51-100</option>
                                 <option value="5">101-200</option>
-                                <option value="6`">200+</option>
+                                <option value="6">200+</option>
                             </select>
                         </div>
                     </div>
@@ -144,18 +144,23 @@ Date Selection for Deadlines
                     <td>Brick lane, London</td>
                 </tr>
                 <tr>
-                <?php foreach ($search_results as $result) { ?>
-                    <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
-                        <td><?= $result["name"]; ?></td>
-                        <td><?= $result["size"]; ?></td>
-                        <td><?= $result["avghours"]; ?></td>
-                        <td><?= $result["comp"]; ?></td>
-                        <td><?= $result["leadership"]; ?></td>
-                        <td><?= $result["deadline"]; }?></td>
-                    </tr>    
+                <?= if($search_results!=-1) {?>
+                    <?= foreach ($search_results as $result) { ?>
+                        <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                            <td class= "name"><?= $result["name"]; ?></td>
+                            <td><?= $result["size"]; ?></td>
+                            <td><?= $result["avghours"]; ?></td>
+                            <td><?= $result["comp"]; ?></td>
+                            <td><?= $result["leadership"]; ?></td>
+                            <td><?= $result["deadline"]; }?></td>
+                        </tr> 
+                <?= } ?>   
             </tbody>
         </table>
         <script>sortable.init();</script>
+        
+        <link rel="stylesheet" href="sortable-theme-dark.css" />
+        <script src="sortable.min.js"></script>    
             
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -165,14 +170,17 @@ Date Selection for Deadlines
                     <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
                     </div>
                     <div class="modal-body">
-                        <h6>Description: </h6>
-                        <h6>Link: </h6>
-                        <h6>Website: </h6>
-                        <h6>Size: </h6>
-                        <h6>Hours/Week: </h6>
-                        <h6>Comp Process: </h6>
-                        <h6>Leadership Process: </h6>
-                        <h6>Application Deadline: </h6>
+                        <h6>Description:<?= $result["description"]; ?> </h6>
+                        <h6>Link: <?= $result["link"]; ?></h6>
+                        <h6>Website: <?= $result["website"]; ?></h6>
+                        <h6>Contact Info: <?= $result["contact info"]; ?></h6>
+                        <h6>Size: <?= $result["size"]; ?></h6>
+                        <h6>Hours/Week: <?= $result["hours"]; ?></h6>
+                        <h6>Meeting Time: <?= $result["name"]; ?></h6>
+                        <h6>Meeting Place: <?= $result["name"]; ?></h6>
+                        <h6>Comp Process: <?= $result["name"]; ?></h6>
+                        <h6>Leadership Process: <?= $result["name"]; ?></h6>
+                        <h6>Application Deadline: <?= $result["name"]; ?></h6>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -182,6 +190,13 @@ Date Selection for Deadlines
             </div>
           </div>
         </div>
+        <script>
+            function getClubName (this) {
+                var name = this.getElementByClass("name").textContent;
+                return name;
+                // return $("#tdid").text();
+            }
+        </script>
     </body>
 </html>
 
