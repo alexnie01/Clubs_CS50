@@ -105,7 +105,7 @@ CREATE TABLE `info` (
   `contact` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `meeting time` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `meeting place` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -116,6 +116,7 @@ CREATE TABLE `info` (
 
 LOCK TABLES `info` WRITE;
 /*!40000 ALTER TABLE `info` DISABLE KEYS */;
+INSERT INTO `info` VALUES (1,'Crimson','www.thecrimson.com','president@thecrimson.com','N/A','Crimson Building','The Harvard Crimson, the nation\'s oldest continuously published daily college newspaper, was founded in 1873 and incorporated in 1967. The newspaper traces its history to the first issue of \"The Magenta,\" published on Jan. 24, 1873, and changed its name to \"The Crimson\" to reflect the new color of the college on May 21, 1875. The Crimson has a rich tradition of journalistic integrity and counts among its ranks of editorship some of America\'s greatest journalists. The faces of Pulitzer Prize-winning Crimson editors line the walls of The Crimson.\r\n\r\nThe Crimson is proud of its legacy of alumni active in journalism, business, public service, and politics. Past editors include Franklin D. Roosevelt, Class of 1904, John F. Kennedy \'40, J. Anthony Lewis \'48, David Halberstam \'55, Michael Crichton \'64, Don Graham \'65, Linda Greenhouse \'68, Steve Ballmer \'77, Jim Cramer \'77, Mark Whitaker \'79, Susan Chira \'80, and Jeff Zucker \'86. One hundred and forty years after its founding, having grown from a fortnightly newspaper to a daily, The Harvard Crimson continues to flourish with a strong body of undergraduate staff volunteers.'),(2,'Harvard Financial Analyst Club','www.harvardfac.org','harvard.fac@gmail.com','Mondays and Thursdays','Lamont 311','Founded in 1996, the Harvard Financial Analysts Club  (HFAC) is dedicated to providing the Harvard student body with sound financial education programs and real-world investment experience. Through the HFAC comp, new members are given a ground up introduction to finance with a focus on internship/career preparation. After completion of the comp, students can help manage HFAC\'s open-end mutual fund, an equity portfolio under the direction of the club\'s student and alumni members. In addition to its weekly financial meetings, HFAC hosts guest speakers and conducts networking events with finance professionals and former members.'),(3,'Harvard-Radcliffe Society of Physics Students','hcs.harvard.edu/~physics/','','Physics Night: Wednesday 9-12p','Leverett Dhall','Harvard Chapter of the Society of Physics Students'),(4,'Harvard-MIT Mathematics Tournament','hmmt.mit.edu','hmmt-request@mit.edu','N/A','Harvard and MIT','Help run the world\'s premier high school math contest!');
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-05 22:57:06
+-- Dump completed on 2014-12-06  5:01:28
