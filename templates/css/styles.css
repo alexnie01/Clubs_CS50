@@ -41,6 +41,6 @@ h5 {
     font-family:Verdana, Geneva, sans-serif;
     font-size:100%;
 }
-page-header {
-  position: fixed;
+.page-header {
+    position: fixed;
 }         
