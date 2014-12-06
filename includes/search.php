@@ -100,8 +100,6 @@
         foreach($divisions as $division)
         {
             // stores lookup for one tag
-            $result = array_unique(query("SELECT * FROM clubs"), SORT_REGULAR);
-            /**
             $result = array_unique(query("SELECT clubs.* FROM clubs JOIN (tags, division) ON (clubs.id = tags.id AND clubs.id = division.id) WHERE 
                 (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%') OR division.division LIKE CONCAT(?,'%')) AND
                 (clubs.id = ? OR ? = 0) AND
@@ -113,7 +111,6 @@
                 (division.division = ? OR ? = '') AND
                 (clubs.deadline >= DATE(?) OR ? = '1000-01-01')",
                 $query, $query, $query, $id, $id, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division, $deadline, $deadline), SORT_REGULAR);
-            */
             // push each club in the query result into $results
             foreach($result as $club)
             {
@@ -233,16 +230,16 @@
     }
     
     // user registration
-    function register($username, $password)
+    function register($username)
     {
         // inserts new user: automatically assigned auto-incremented user_id
-        return query("INSERT INTO users (username, password) VALUES (?, ?)", $username, $password);
+        return query("INSERT INTO users (username) VALUES (?)", $username);
     }
     
     // verifies that user is in database and inputted correct password. Can also be used for lookups
-    function lookup_user($username, $password)
+    function lookup_user($username)
     {
-        return query("SELECT user_id, password FROM users WHERE username = ? AND password = ?", $username, $password);
+        return query("SELECT user_id FROM users WHERE username = ?", $username);
     }
     
     /** Deletes user from database. Checked that user was in database even though logged in to make sure
@@ -262,8 +259,8 @@
          *  support for FULL JOIN
          */
         query("DELETE FROM users WHERE user_id = ?", $user_id);
-        query("DELETE FROM interests WHERE user_id = ?", $user_id);
-        query("DELETE FROM history WHERE user_id = ?", $user_id);
+//        query("DELETE FROM interests WHERE user_id = ?", $user_id);
+//        query("DELETE FROM history WHERE user_id = ?", $user_id);
         
         return 0;
     }
