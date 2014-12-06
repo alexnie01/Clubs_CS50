@@ -100,6 +100,8 @@
         foreach($divisions as $division)
         {
             // stores lookup for one tag
+            $result = array_unique(query("SELECT * FROM clubs"), SORT_REGULAR);
+            /**
             $result = array_unique(query("SELECT clubs.* FROM clubs JOIN (tags, division) ON (clubs.id = tags.id AND clubs.id = division.id) WHERE 
                 (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%') OR division.division LIKE CONCAT(?,'%')) AND
                 (clubs.id = ? OR ? = 0) AND
@@ -111,7 +113,7 @@
                 (division.division = ? OR ? = '') AND
                 (clubs.deadline >= DATE(?) OR ? = '1000-01-01')",
                 $query, $query, $query, $id, $id, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division, $deadline, $deadline), SORT_REGULAR);
-
+            */
             // push each club in the query result into $results
             foreach($result as $club)
             {

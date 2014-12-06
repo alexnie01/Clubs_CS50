@@ -127,8 +127,8 @@ Date Selection for Deadlines
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
                 </tr>
-                <?= foreach($search_results as $result) { ?>
-                    <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                <?php foreach($search_results as $result) { ?>
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class= "name"><?= $result["name"]; ?></td>
                         <td><?= $result["size"]; ?></td>
                         <td><?= $result["avghours"]; ?></td>
@@ -136,11 +136,10 @@ Date Selection for Deadlines
                         <td><?= $result["leadership"]; ?></td>
                         <td><?= $result["deadline"];?></td>
                     </tr>
-                <?= } ?>    
+                <?php } ?>    
             </tbody>
         </table>
         <script>sortable.init();</script>
-        
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
             
