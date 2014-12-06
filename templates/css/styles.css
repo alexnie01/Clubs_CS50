@@ -28,7 +28,10 @@ table
     white-space: nowrap;
     width: inherit
 }
-
+.modal .modal-body {
+    max-height: 420px;
+    overflow-y: auto;
+}
 h1 {
     text-align: center;
     color:black;
