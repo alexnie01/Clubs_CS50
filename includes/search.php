@@ -43,7 +43,7 @@
          *  in the SQL query. Written this way because people who care about comp are mostly
          *  interested in whether a club does NOT have a comp.
          */  
-        if(array_key_exists("nocomp", $_POST)
+        if(array_key_exists("nocomp", $_POST))
         {
             $comp = false;
         }
@@ -92,14 +92,15 @@
             $result = array_unique(query("SELECT * FROM clubs JOIN tags ON (clubs.id = tags.id) WHERE 
                 (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%')) AND
                 (clubs.size = ? OR ? = 0) AND
+                clubs.avghours >= ? AND
                 clubs.avghours <= ? AND
-                clubs.avghours >= ?", $query, $query, $size, $size, $min_hours, $max_hours), SORT_REGULAR);
+                (clubs.leadership = ? OR ? = 0)", $query, $query, $size, $size, $min_hours, $max_hours, $leadership, $leadership), SORT_REGULAR);
            /*     
                 (clubs.comp = ? OR ? = TRUE) AND
                 clubs.avghours <= ? AND
                 clubs.avghours >= ? AND
                 (clubs.leadership = ? OR ? = 0) AND
-                tags.tag LIKE CONCAT(?,'*')",
+                tags.tag LIKE CONCAT(?,'*'),
                 $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division), SORT_REGULAR);
             */
             //MATCH (name) AGAINST (CONCAT(?,'*') IN NATURAL LANGUAGE MODE)", $query), SORT_REGULAR);
