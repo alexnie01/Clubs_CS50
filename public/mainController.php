@@ -1,7 +1,7 @@
  <?php
 
-    // configuration
-    require("../includes/search.php");
+    // configuration (add back ../ after sending to Aditya)
+    require("includes/search.php");
     
     // if user reached via GET
     if ($_SERVER["REQUEST_METHOD"] == "GET")
@@ -10,7 +10,7 @@
         $results = search("", 0, 0, true, 0, 1000, 0, '1000-01-01',[""]); 
         
         // renders first page
-        render("testsearch0.html", ["search_results" => $results[0], "info" => $results[1]]);
+        render("testsearch1.html", ["search_results" => $results[0], "info" => $results[1]]);
         print("GET request received");
 
     }
@@ -27,7 +27,7 @@
         // deletion funtion
         
         //return to mainTemplate page
-        render("testsearch0.html", ["search_results" => $results[0], "info" => $results[1]]);
+        render("testsearch1.html", ["search_results" => $results[0], "info" => $results[1]]);
         
     }
        
