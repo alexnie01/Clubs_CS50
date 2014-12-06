@@ -2,7 +2,7 @@
 <?php
     
     // import SQL query functionality
-    require("../includes/search.php");
+    require("../includes/config.php");
 
     // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
@@ -25,7 +25,8 @@
         }
 
         // query database for user
-        $rows = lookup_user($_POST["username"], $_POST["password"]);
+        $rows = query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
+
 
         // if we found user, check password
         if (count($rows) == 1)
@@ -33,7 +34,7 @@
             // first (and only) row
             $row = $rows[0];
 
-            // compare hash of user's input against hash that's in database
+            // compare passwords in database
             if ($_POST["password"] == $row["password"])
             {
                 // remember that user's now logged in by storing user's ID in session
