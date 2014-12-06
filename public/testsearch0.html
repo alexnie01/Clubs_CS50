@@ -15,8 +15,8 @@ Date Selection for Deadlines
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
-        
-        
+        <link rel="stylesheet" href="sortable-theme-dark.css" />
+        <script src="sortable.min.js"></script>         
     </head>
 
     <body>
@@ -54,10 +54,10 @@ Date Selection for Deadlines
                         <div class = "span1">
                             <select class="form-control" name="size">
                                 <option value="0" selected>All Sizes</option>
-                                <option value="1">0-50</option>
-                                <option value="2">101-150</option>
-                                <option value="3">101-150</option>
-                                <option value="4">151-200</option>
+                                <option value="1">0-20</option>
+                                <option value="2">21-50</option>
+                                <option value="3">51-100</option>
+                                <option value="4">101-200</option>
                                 <option value="5">200+</option>
                             </select>
                         </div>
@@ -102,8 +102,10 @@ Date Selection for Deadlines
         </div> <!-- end of fluid-container -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="sortable-0.5.0/js/sortable.min.js"></script>
-    <link rel="stylesheet" href="sortable-0.5.0/css/sortable-theme-bootstrap.css" />
+    <!--<script src="sortable-0.5.0/js/sortable.min.js"></script>-->
+    <!--<link rel="stylesheet" href="sortable-0.5.0/css/sortable-theme-bootstrap.css" />-->
+    <link rel="stylesheet" href="sortable-theme-dark.css" />
+    <script src="sortable.min.js"></script>  
     
     <!-- Create table -->
         <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
@@ -148,7 +150,10 @@ Date Selection for Deadlines
                 </tr>
             </tbody>
         </table>
-    
+        <script>sortable.init();</script>
+        <link rel="stylesheet" href="sortable-theme-dark.css" />
+        <script src="sortable.min.js"></script> 
+        
     </body>
 </html>
 

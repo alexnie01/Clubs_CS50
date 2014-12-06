@@ -10,10 +10,10 @@ table, .row {
     margin-left:1%; 
 }
             
-table, .row {
-    display: block;
-    max-width:90%;
-    margin-left:1%; 
+table
+{
+    position:absolute;
+    top:50%;
 }
             
 .top-buffer { 
@@ -27,4 +27,20 @@ table, .row {
     text-overflow: hidden; 
     white-space: nowrap;
     width: inherit
-}          
+}
+
+h1 {
+    text-align: center;
+    color:black;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:400%;
+}
+h5 {
+    text-align: left;
+    color:black;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:100%;
+}
+.page-header {
+    position: fixed;
+}         

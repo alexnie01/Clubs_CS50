@@ -39,7 +39,7 @@
     {
         if (empty($_SESSION["id"]))
         {
-            redirect("login.php");
+            redirect("index.php");
         }
     }
 
