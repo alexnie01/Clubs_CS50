@@ -47,7 +47,7 @@ h5 {
 .page-header {
     position: fixed;
 } 
-.tbody {
+tbody {
  width: 200px;
  height: 400px;
  overflow: auto;
