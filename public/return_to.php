@@ -1,7 +1,7 @@
 <?php
 
     // configuration
-    require("..includes/config.php");
+    require("../includes/config.php");
 
     // remember which user, if any, logged in
     $user = CS50::getUser(RETURN_TO);

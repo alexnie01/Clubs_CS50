@@ -12,63 +12,60 @@
     function universal_search()
     {
         // standard values for variables user entered into mainTemplate
-        $search = $_POST["search"].'*';
+        $search = $_POST["search"];
         $divisions = [$_POST["division"]];
         $size = $_POST["size"];
         $leadership = ($_POST["leadership"]);
         $min_hours = $_POST["min_hours"];
         $max_hours = $_POST["max_hours"];
         $deadline = $_POST["deadline"];
-        
-        // wildcard returns all clubs regardless of comp, so default returns all clubs
-        $comp = '*';
-        
-        // casework for entries without user input
-        
-        if($search == "")
-        {
-            $search = "*";
-        }
+        $comp = true;
         
         /**
-         * checks if user actually entered a specific division. If yes, uses wildcard
-         * so that all categories will be matched upon SQL query
+         * checks if user actually entered a specific division. If yes, use blank then add wildcard
+         * through concatenation in SQL so that all categories will be matched upon SQL query
          */
-        if($_POST["division"] == "All Categories")
+        if($_POST["division"] == "All Categories" || sizeof($_POST["division"]) == 0)
         {
-            $divisions = ['*'];
+            $divisions = [''];
         }
         
+        // checks if user specified size. If not, 0 returns all clubs.size
         if($size == "All Sizes")
         {
-            $size = "*";
+            $size = 0;
         }
-        // checks if user wants only clubs with no comp
-        if($_POST["nocomp"] == "true")
+        
+        /** checks if user wants only clubs with no comp. if user does not check box then
+         *  nocomp will not be passed through POST by HTML. Only activates when user
+         *  wants no comps only, so set $comp to false. Setting $comp to true returns
+         *  all clubs while setting it to false returns clubs only with no comp due to the logic
+         *  in the SQL query. Written this way because people who care about comp are mostly
+         *  interested in whether a club does NOT have a comp.
+         */  
+        if(array_key_exists("nocomp", $_POST))
         {
-            $comp = "false";
+            $comp = false;
         }
-                
-        if($max_hours == "")
+        
+        // checks if user entered in max_hours argument
+        if(sizeof($max_hours) == 0)
         {
             // assumed no clubs would have >1000 hours per week since 24*7 << 1000
             $max_hours = 1000;
         }
-          
-        if($min_hours == "")
+        
+        // checks if user entered in min_hours argument
+        if(sizeof($min_hours) == 0)
         {
             // returns all clubs since they must have non-negative hour commitment
             $min_hours = 0;
         }  
         
-        if($deadline == "")
+        // checks if user entered in deadline argument
+        if(sizeof($deadline) == "")
         {
-            $deadline = "*";
-        }    
-        
-        if($divisions[0] == "")
-        {
-            $divisions[0] = "*";
+            $deadline = "1000-01-01";
         }
         
         // return search information
@@ -84,19 +81,36 @@
         $results = [];
         
         /**
-         * Initially looks for matches among everything except tags and returns table in nested query.
-         * Then iterates through that table and returns subset of that with single tag match.
-         * After all of this, returns array of unique results.
+         * Iterates through for each division selected (currently limited to 1) and matches attributes across
+         * clubs and tags tables. Used JOIN to allow simulataneous searches.
+         * To deal with multiple instances arising from each club due to non-unique JOIN over tags.id, used
+         * array_unique().
          */
         foreach($divisions as $division)
         {
-            $comp = true;
-            $min_hours = 0;
-            $max_hours = 100;
-            $leadership = 2;
-            $deadline = '*';
             // stores lookup for one tag
-            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id)"), SORT_REGULAR);
+            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN (tags, division) ON (clubs.id = tags.id AND clubs.id = division.id) WHERE 
+                (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%') OR division.division LIKE CONCAT(?,'%')) AND
+                (clubs.size = ? OR ? = 0) AND
+                (clubs.comp = ? OR ? = TRUE) AND
+                clubs.avghours >= ? AND
+                clubs.avghours <= ? AND
+                (clubs.leadership = ? OR ? = 0) AND
+                (division.division = ? OR ? = '')", 
+                $query, $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division), SORT_REGULAR);
+           /*     
+                (clubs.comp = ? OR ? = TRUE) AND
+                clubs.avghours <= ? AND
+                clubs.avghours >= ? AND
+                (clubs.leadership = ? OR ? = 0) AND
+                tags.tag LIKE CONCAT(?,'*'),
+                $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division), SORT_REGULAR);
+            */
+            //MATCH (name) AGAINST (CONCAT(?,'*') IN NATURAL LANGUAGE MODE)", $query), SORT_REGULAR);
+            /**
+            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id) WHERE
+                MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION)", $query), SORT_REGULAR);
+            */
             /*
             WHERE
                 MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION) OR

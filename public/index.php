@@ -3,9 +3,6 @@
     // configuration
     require("../includes/config.php"); 
 
-    // configuration
-    require_once(dirname(__FILE__) . "/config.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +13,7 @@
     <title>CS50 Clubs</title>
   </head>
   <body>
-     <!-- Code below can be used if we implement CS50 ID
+
     <?php 
     
         if (isset($_SESSION["user"]))
@@ -29,13 +26,12 @@
                 echo "<div>Your email address is <b>" . htmlspecialchars($_SESSION["user"]["email"]) . "</b>.</div>";
         }
         else
-            echo "You are not logged in.  <a href='login.php'>Log in</a>.";
+            echo "You are not logged in.  <a href='templogin.php'>Log in</a>.";
   
       ?>
-    //-->
+
 
     </ul>
   </body>
 </html>
 
-?>
