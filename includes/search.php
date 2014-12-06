@@ -62,8 +62,12 @@
             $min_hours = 0;
         }  
         
-        // checks if user entered in deadline argument
-        if(sizeof($deadline) == 0)
+        /**
+         * checks if user entered in deadline argument: couldn't figure out what html
+         * returns by default in input type = "date" other than not null, so simply
+         * check if any date was returned
+         */
+        if($deadline == "")
         {
             $deadline = "1000-01-01";
         }
@@ -113,8 +117,76 @@
             return -1;
         }
         
-        return array_unique($results, SORT_REGULAR);
+        return translate(array_unique($results, SORT_REGULAR));
     }
+    
+    // translate club description indices to actual words
+    function translate($raw)
+    {
+        // stores cleaned results
+        $results = [];
+        
+        // translates size into a range
+        foreach($raw as $club)
+        {
+            switch($club["size"])
+            {
+                case 1:  
+                    $club["size"] = "0-10";
+                    break;
+                case 2:
+                    $club["size"] = "11-30";
+                    break;
+                case 3:
+                    $club["size"] = "31-50";
+                    break;
+                case 4:
+                    $club["size"] = "51-100";
+                    break;
+                case 5:
+                    $club["size"] = "101-200";
+                    break;
+                case 6:
+                    $club["size"] = "200+";
+                    break;
+                default:
+                    $club["size"] = "Unavailable";
+            }
+        
+            // translates if club has comp since SQL uses TINYINT rather than true booleans    
+            if($club["comp"] == 1)
+            {
+                $club["comp"] = "Yes";
+            }
+            
+            else
+            {
+                $club["comp"] = "No";
+            }
+            
+            // Leadership
+            switch($club["leadership"])
+            {
+                case 1:
+                    $club["leadership"] = "Elected";
+                    break;
+                case 2:
+                    $club["leadership"] = "Applications";
+                    break;
+                case 3:
+                    $club["leadership"] = "Other";
+                    break;
+                default:
+                    $club["leadership"] = "N/A";
+            }
+            
+            // add cleaned club to results for final display
+            array_push($results, $club);
+        }
+        
+        return $results;
+    }
+    
     // add club to special tables: interest, history or club's I'm in by club_id
     function add_special($table, $user_id, $club_id)
     {
