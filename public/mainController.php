@@ -26,16 +26,6 @@
         //return to mainTemplate page
         render("../templates/resultsTemplate.html", ["search_results" => $search_results]);
         
-        /*    
-        //debugging:
-        foreach($search_results as $row) {
-            foreach($row as $element){
-                echo("<script>console.log('PHP: ".json_encode($search_results[$rows[$element]].", ")."');</script>");
-                console.log();
-            }
-            echo("<script>console.log('PHP: "."\n"."');</script>");
-        }
-        */
     }
        
 ?>
