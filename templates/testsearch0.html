@@ -109,7 +109,6 @@ Date Selection for Deadlines
             <thead>
                 <tr>
                     <th>Club</th>
-                    <th>Category</th>
                     <th>Size</th>
                     <th>Hours/Week</th>
                     <th>Comp Process</th>
@@ -125,7 +124,6 @@ Date Selection for Deadlines
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
                 <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
                     <td class = "ellipsis">Club</td>
@@ -134,7 +132,6 @@ Date Selection for Deadlines
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
                 <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
                     <td class = "ellipsis">Club</td>
@@ -143,20 +140,17 @@ Date Selection for Deadlines
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
-                <?php $search_results=[["a","b","c","d","e","f","g","h"],["i","j","k","l","m","n","o","p"]];?>
+                function search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
                 <tr>
-                <?php print($search_results[0][0]); ?>
                 <?php foreach ($search_results as $result) { ?>
-                    <tr>
-                        <td><?= $result[0]; ?></td>
-                        <td><?= $result[1]; ?></td>
-                        <td><?= $result[2]; ?></td>
-                        <td><?= $result[3]; ?></td>
-                        <td><?= $result[4]; ?></td>
-                        <td><?= $result[5]; ?></td>
-                        <td><?= $result[6]; }?></td>
+                    <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                        <td><?= $result["name"]; ?></td>
+                        <td><?= $result["size"]; ?></td>
+                        <td><?= $result["avghours"]; ?></td>
+                        <td><?= $result["comp"]; ?></td>
+                        <td><?= $result["leadership"]; ?></td>
+                        <td><?= $result["deadline"]; }?></td>
                     </tr>    
             </tbody>
         </table>
