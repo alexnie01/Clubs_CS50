@@ -25,7 +25,7 @@
          * checks if user actually entered a specific division. If yes, use blank then add wildcard
          * through concatenation in SQL so that all categories will be matched upon SQL query
          */
-        if($_POST["division"] == "All Categories")
+        if($_POST["division"] == "All Categories" || sizeof($_POST["division"]) == 0)
         {
             $divisions = [''];
         }
@@ -89,12 +89,15 @@
         foreach($divisions as $division)
         {
             // stores lookup for one tag
-            $result = array_unique(query("SELECT * FROM clubs JOIN tags ON (clubs.id = tags.id) WHERE 
-                (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%')) AND
+            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN (tags, division) ON (clubs.id = tags.id AND clubs.id = division.id) WHERE 
+                (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%') OR division.division LIKE CONCAT(?,'%')) AND
                 (clubs.size = ? OR ? = 0) AND
+                (clubs.comp = ? OR ? = TRUE) AND
                 clubs.avghours >= ? AND
                 clubs.avghours <= ? AND
-                (clubs.leadership = ? OR ? = 0)", $query, $query, $size, $size, $min_hours, $max_hours, $leadership, $leadership), SORT_REGULAR);
+                (clubs.leadership = ? OR ? = 0) AND
+                (division.division = ? OR ? = '')", 
+                $query, $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division), SORT_REGULAR);
            /*     
                 (clubs.comp = ? OR ? = TRUE) AND
                 clubs.avghours <= ? AND

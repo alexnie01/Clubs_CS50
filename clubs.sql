@@ -46,6 +46,29 @@ INSERT INTO `clubs` VALUES (1,'Crimson',3,1,5,2,'2014-12-16'),(2,'Harvard Financ
 UNLOCK TABLES;
 
 --
+-- Table structure for table `division`
+--
+
+DROP TABLE IF EXISTS `division`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `division` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `division` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `division`
+--
+
+LOCK TABLES `division` WRITE;
+/*!40000 ALTER TABLE `division` DISABLE KEYS */;
+INSERT INTO `division` VALUES (1,'Academic & Pre-Professional'),(2,'Academic & Pre-Professional'),(3,'Departmental'),(3,'Academic & Pre-Professional');
+/*!40000 ALTER TABLE `division` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `history`
 --
 
@@ -176,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-05 19:55:29
+-- Dump completed on 2014-12-05 22:12:32
