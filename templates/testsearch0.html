@@ -119,12 +119,13 @@ Date Selection for Deadlines
                 </tr>
             </thead>
             <tbody>
-                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>CAMBRIDGE</td>
+                <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                    <td class = "ellipsis">Club</td>
+                    <td class = "ellipsis">Thomas bell </td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
                 </tr>
                 <?php foreach($search_results as $result) { ?>
                     <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
@@ -146,26 +147,11 @@ Date Selection for Deadlines
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
                     <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
                     </div>
                     <div class="modal-body">
                         <h6>Description:<?= $result["description"]; ?> </h6>
-                        <p>afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                        </p>
                         <h6>Link: <?= $result["link"]; ?></h6>
                         <h6>Website: <?= $result["website"]; ?></h6>
                         <h6>Contact Info: <?= $result["contact info"]; ?></h6>
