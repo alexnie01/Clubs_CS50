@@ -6,34 +6,10 @@
 <h1>My First Heading</h1>
 
 <p>My first paragraph.</p>
-
+<?php $searchresults=[["a","b","c","d","e","f","g","h"],["i","j","k","l","m","n","o","p"]];?>
+<?php print($researchresults[0][0]); ?>
 <table>
-<?php $items = array(array(1,2,3),array(1,2,3))?>
-<?php foreach($items as $row) {
-  print('<tr>');
-  print('<td>');
-  print(implode('</td><td>', $row);
-  print('</td>');
-  print('</tr>');
-} ?>
 
-
-
-
-<?php          
-                    foreach ($searchresults as $result)
-                    {
-                        print("<tr>");
-                        print("<td class = \"ellipsis\">{$result["name"]}</td>");
-                        print("<td class = \"ellipsis\">{$result["category"]}</td>");
-                        print("<td>?</td>", $result[0]);
-                        print("<td>{$result["hours"]}</td>");
-                        print("<td>{$result["nocomp"]}</td>");
-                        print("<td>{$result["leadership"]}</td>");
-                        print("<td>{$result["deadline"]}</td>");
-                        print("</tr>");
-                    }
-                ?>
 </table>
 
 </body>
