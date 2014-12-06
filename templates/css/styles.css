@@ -5,15 +5,26 @@
 }
 
 table, .row {
-                display: block;
-                max-width:90%;
-                margin-left:1%; 
-            }
-            table, .row {
-                display: block;
-                max-width:90%;
-                margin-left:1%; 
-            }
-            .top-buffer { 
-                margin-top:20px; 
-            }
+    display: block;
+    max-width:90%;
+    margin-left:1%; 
+}
+            
+table, .row {
+    display: block;
+    max-width:90%;
+    margin-left:1%; 
+}
+            
+.top-buffer { 
+    margin-top:20px; 
+}
+
+.ellipsis { 
+    overflow: hidden;
+    -ms-text-overflow: ellipsis; 
+    -o-text-overflow: hidden; 
+    text-overflow: hidden; 
+    white-space: nowrap;
+    width: inherit
+}          
