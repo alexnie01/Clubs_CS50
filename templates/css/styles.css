@@ -10,10 +10,10 @@ table, .row {
     margin-left:1%; 
 }
             
-table, .row {
-    display: block;
-    max-width:90%;
-    margin-left:1%; 
+table
+{
+    position:absolute;
+    top:50%;
 }
             
 .top-buffer { 
