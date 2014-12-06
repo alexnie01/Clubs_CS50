@@ -11,6 +11,6 @@
     $protocol = (isset($_SERVER["HTTPS"])) ? "https" : "http";
     $host  = $_SERVER["HTTP_HOST"];
     $path = rtrim(dirname($_SERVER["PHP_SELF"]), "/\\");
-    header("Location: {$protocol}://{$host}{$path}/index.php");
+    header("Location: {$protocol}://{$host}{$path}.php");
 
 ?>

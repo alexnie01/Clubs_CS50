@@ -18,13 +18,14 @@ Date Selection for Deadlines
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
-        <script src="sortable.min.js"></script>
-        
+        <script src="sortable.min.js"></script>    
     </head>
 
     <body>
+        <div class="page-header">
+            <h1>HarvardClubs.Net</h1>
+        </div>
             <div class="container-fluid">
-            <h2>Harvard Clubs</h2>
             <form class="form-inline" role="form" action="mainController.php" method="post">
                 <div class = "row-fluid">
                     <div class="form-group">
@@ -57,11 +58,12 @@ Date Selection for Deadlines
                         <div class = "span1">
                             <select class="form-control" name="size">
                                 <option value="0" selected>All Sizes</option>
-                                <option value="1">0-50</option>
-                                <option value="2">101-150</option>
-                                <option value="3">101-150</option>
-                                <option value="4">151-200</option>
-                                <option value="5">200+</option>
+                                <option value="1">0-10</option>
+                                <option value="2">11-30</option>
+                                <option value="3">31-50</option>
+                                <option value="4">51-100</option>
+                                <option value="5">101-200</option>
+                                <option value="6`">200+</option>
                             </select>
                         </div>
                     </div>
@@ -141,7 +143,6 @@ Date Selection for Deadlines
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
                 </tr>
-                function search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
                 <tr>
                 <?php foreach ($search_results as $result) { ?>
                     <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
@@ -161,10 +162,21 @@ Date Selection for Deadlines
                 <div class="modal-content">
                     <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
                     </div>
                     <div class="modal-body">
-                        <h3>Modal Body</h3>
+                        <h5>Description</h5>
+                        <p>blah</p>
+                        <h5>Size</h5>
+                        <p>blah</p>
+                        <h5>Hours/Week</h5>
+                        <p>blah</p>
+                        <h5>Comp Process</h5>
+                        <p>blah</p>
+                        <h5>Leadership Process</h5>
+                        <p>blah</p>
+                        <h5>Application Deadline</h5>
+                        <p>blah</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
