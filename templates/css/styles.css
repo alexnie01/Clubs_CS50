@@ -12,8 +12,12 @@ table, .row {
             
 table
 {
-    position:relative;
+    table-layout:fixed;
     top:35%;
+}
+tbody
+{
+    overflow-y:auto;
 }
             
 .top-buffer { 
