@@ -21,6 +21,9 @@
         $deadline = $_POST["deadline"];
         $comp = true;
         
+        // set $id=0 to ignore $id
+        $id = 0;
+        
         /**
          * checks if user actually entered a specific division. If yes, use blank then add wildcard
          * through concatenation in SQL so that all categories will be matched upon SQL query
@@ -73,16 +76,20 @@
         }
         
         // return search information
-        return search($search, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions);
+        return search($search, $size, $id, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions);
     }
     
     /** returns complete info of all clubs matching intial search conditions
      *  need to pass in all divisions and tags as $divisions array (optional fuure implementation)
      */
-    function search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
+    function search($query, $size, $id, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
     {
-        // array to store all results
+        // array to store search results from clubs table for table
         $results = [];
+        
+        // array to store corresponding club descriptions
+        $info = []; 
+        
 
         /**
          * Iterates through for each division selected (currently limited to 1) and matches attributes across
@@ -95,6 +102,7 @@
             // stores lookup for one tag
             $result = array_unique(query("SELECT clubs.* FROM clubs JOIN (tags, division) ON (clubs.id = tags.id AND clubs.id = division.id) WHERE 
                 (clubs.name LIKE CONCAT(?,'%') OR tags.tag LIKE CONCAT(?,'%') OR division.division LIKE CONCAT(?,'%')) AND
+                (clubs.id = ? OR ? = 0) AND
                 (clubs.size = ? OR ? = 0) AND
                 (clubs.comp = ? OR ? = TRUE) AND
                 clubs.avghours >= ? AND
@@ -102,7 +110,7 @@
                 (clubs.leadership = ? OR ? = 0) AND
                 (division.division = ? OR ? = '') AND
                 (clubs.deadline >= DATE(?) OR ? = '1000-01-01')",
-                $query, $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division, $deadline, $deadline), SORT_REGULAR);
+                $query, $query, $query, $id, $id, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division, $deadline, $deadline), SORT_REGULAR);
 
             // push each club in the query result into $results
             foreach($result as $club)

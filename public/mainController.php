@@ -7,7 +7,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // performs empty search that retrieves all clubs
-        $search_results = search("", 0, true, 0, 1000, 0, '1000-01-01',[""]); 
+        $search_results = search("", 0, 0, true, 0, 1000, 0, '1000-01-01',[""]); 
         
         // renders first page
         render("testsearch0.html", ["search_results" => $search_results]);
