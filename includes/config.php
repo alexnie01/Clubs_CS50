@@ -29,8 +29,10 @@
     // CS50 Library; ideally, this should not be inside public_html (or DocumentRoot)
     require("CS50.php");
 
+    /*
     // enable sessions to track information in $_SESSION
     session_start();
+    */
 
     // require authentication for all pages except /login.php, /logout.php, and /register.php
     if (!in_array($_SERVER["PHP_SELF"], ["/login.php", "/logout.php", "/register.php", "/mainController.php"]))
