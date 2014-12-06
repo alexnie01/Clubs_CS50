@@ -2,8 +2,8 @@
 <!--
 Form Includes:
 User-Inputed earch
-Dropdown Category
-Dropdown Size
+Dropdown Category/Division
+Dropdown Sizess
 Checkbox Box Comp Process
 Dropdown Leadership Process
 User-Inputted MinHours
@@ -24,25 +24,33 @@ Deadline
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap Includes and Self-Wrote Styles Sheet-->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- sortable API -->
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
     </head>
 
     <body>
+        <!-- Page Header Fixed On Top Includes Web Title and Form -->
         <div class="page-header">
             <h1>HarvardClubs.Net</h1>
+                <!-- Start Form With fluid container -->
                 <div class="container-fluid">
+                <!-- Send to mainController.php -->
                 <form class="form-inline" role="form" action="mainController.php" method="post">
+                    <!-- First row in the search bar -->
                     <div class = "row-fluid">
+                        <!-- Search - user-inputted text -->
                         <div class="form-group">
                             <div class = "span5">
                                 <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
                             </div>
                         </div>
+                        <!-- Dropdown for division -->
                         <div class="form-group">
                             <div class = "span5">
                                 <select class="form-control" name="division">
@@ -64,6 +72,7 @@ Deadline
                                 </select>
                             </div>
                         </div>
+                        <!-- Dropdown for size -->
                         <div class="form-group">
                             <div class = "span1">
                                 <select class="form-control" name="size">
@@ -77,11 +86,13 @@ Deadline
                                 </select>
                             </div>
                         </div>
+                        <!-- Checkbox for nocomp -->
                         <div class="form-group">
                             <div class = "span1">
                                 <input type="checkbox" name="nocomp" class="form-control"> No Comp
                             </div>
                         </div>
+                        <!-- Dropdown for leadership process -->
                         <div class="form-group">
                             <div class = "span3">
                                 <select class="form-control" name="leadership">
@@ -93,22 +104,27 @@ Deadline
                             </div>
                         </div>
                     </div>
+                    <!-- Start of new row (2nd row) -->
                     <div class = "row-fluid">
+                        <!-- Min Hours/Week Text Inputted by User -->
                         <div class="form-group">
                             <div class="span3">
                                 <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
                             </div>
                         </div>
+                        <!-- Max Hours/Week Text Inputted by User -->
                         <div class="form-group">
                             <div class = "span3">
                                 <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
                             </div>
                         </div>
+                        <!-- Furtherest Deadline Date Inputted by User -->
                         <div class="form-group">
                             <div class = "span3">
                                 Furthest Deadline: <input type="date" class="form-control" name="deadline" placeholder="Furthest Deadline" min="2000-01-02">
                             </div>
                         </div>
+                        <!-- Search Button Using Bootstrap Glyph -->
                         <button class="btn btn-info" type="submit">
                             <span class="glyphicon glyphicon-search"></span> Search
                         </button>
@@ -120,6 +136,7 @@ Deadline
     <!-- Create table -->
         <footer class="footer">
             <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
+                <!-- Headers-->
                 <thead>
                     <tr>
                         <th>Club</th>
@@ -131,7 +148,9 @@ Deadline
                     </tr>
                 </thead>
                 <tbody>
+                <!-- Dynamically Populating Table dependent on search_results array using php-->
                     <?php foreach($search_results as $result) { ?>
+                        <!-- clickable rows to link to modal for more information -->
                         <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                             <td class= "name"><?= $result["name"]; ?></td>
                             <td><?= $result["size"]; ?></td>
@@ -149,7 +168,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -157,7 +176,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -165,7 +184,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -173,7 +192,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -181,7 +200,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -189,7 +208,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -197,7 +216,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -205,7 +224,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -213,7 +232,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -221,7 +240,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -229,7 +248,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -237,7 +256,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                   <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -245,7 +264,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -253,7 +272,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -261,7 +280,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -269,7 +288,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -277,7 +296,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -285,7 +304,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -293,7 +312,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -301,7 +320,7 @@ Deadline
                         <td>SUCKS!!</td>
                         <td>CAMBRIDGE</td>
                     </tr>
-                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
                         <td class = "ellipsis">Lalala </td>
                         <td>CS50 SUCKS</td>
                         <td>harvardclubs.net</td>
@@ -315,7 +334,8 @@ Deadline
         <script>sortable.init();</script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
-            
+        
+        <!-- Modal for Club description, etc. after row is clicked -->    
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -358,8 +378,6 @@ Deadline
             </div>
           </div>
         </div>
-        <script>
-        </script>
     </body>
 </html>
 
