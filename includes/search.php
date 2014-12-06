@@ -49,7 +49,7 @@
         }
         
         // checks if user entered in max_hours argument
-        if(sizeof($max_hours) == 0)
+        if(sizeof($max_hours) == 0 || $max_hours == 0)
         {
             // assumed no clubs would have >1000 hours per week since 24*7 << 1000
             $max_hours = 1000;
@@ -79,7 +79,7 @@
     {
         // array to store all results
         $results = [];
-        
+
         /**
          * Iterates through for each division selected (currently limited to 1) and matches attributes across
          * clubs and tags tables. Used JOIN to allow simulataneous searches.
@@ -96,34 +96,9 @@
                 clubs.avghours >= ? AND
                 clubs.avghours <= ? AND
                 (clubs.leadership = ? OR ? = 0) AND
-                (division.division = ? OR ? = '')", 
+                (division.division = ? OR ? = '')",
                 $query, $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division), SORT_REGULAR);
-           /*     
-                (clubs.comp = ? OR ? = TRUE) AND
-                clubs.avghours <= ? AND
-                clubs.avghours >= ? AND
-                (clubs.leadership = ? OR ? = 0) AND
-                tags.tag LIKE CONCAT(?,'*'),
-                $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division), SORT_REGULAR);
-            */
-            //MATCH (name) AGAINST (CONCAT(?,'*') IN NATURAL LANGUAGE MODE)", $query), SORT_REGULAR);
-            /**
-            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id) WHERE
-                MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION)", $query), SORT_REGULAR);
-            */
-            /*
-            WHERE
-                MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION) OR
-                MATCH (tags.tag) AGAINST (? WITH QUERY EXPANSION) AND
-                clubs.size = ? AND
-                clubs.comp = ? AND
-                clubs.avghours <= ? AND
-                clubs.avghours >= ? AND
-                clubs.leadership = ? AND
-                (clubs.deadline = 1 OR TRUE) AND
-                MATCH (tags.tag) AGAINST (? WITH QUERY EXPANSION)", 
-                $query, $query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $division));
-            */
+
             // push each club in the query result into $results
             foreach($result as $club)
             {

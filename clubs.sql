@@ -64,7 +64,7 @@ CREATE TABLE `division` (
 
 LOCK TABLES `division` WRITE;
 /*!40000 ALTER TABLE `division` DISABLE KEYS */;
-INSERT INTO `division` VALUES (1,'Academic & Pre-Professional'),(2,'Academic & Pre-Professional'),(3,'Departmental'),(3,'Academic & Pre-Professional');
+INSERT INTO `division` VALUES (1,'Academic & Pre-Professional'),(2,'Academic & Pre-Professional'),(3,'Departmental'),(3,'Academic & Pre-Professional'),(4,'Departmental'),(4,'Academic & Pre-Professional');
 /*!40000 ALTER TABLE `division` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-05 22:12:32
+-- Dump completed on 2014-12-05 22:57:06
