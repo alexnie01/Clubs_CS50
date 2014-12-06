@@ -125,7 +125,24 @@
             return -1;
         }
         
-        return translate(array_unique($results, SORT_REGULAR));
+        $results = array_unique($results, SORT_REGULAR);
+        
+        // retrieve relevant club information for modal window
+        foreach($results as $result)
+        {
+            $temp = query("SELECT * FROM info WHERE id = ?", $result["id"]);
+            
+            // make sure that query found club matching the id or else $temp is false
+            if($temp != false)
+            {
+                foreach($temp as $club)
+                {
+                    array_push($info, $club);
+                }
+            }
+        }
+        
+        return [translate($results), $info];
     }
     
     // translate club description indices to actual words
