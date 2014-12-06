@@ -58,4 +58,11 @@ tbody {
 } 
 .modal-body p {
     word-wrap: break-word;
-}     
+}
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 400px;
+  clear:both;
+  padding-top:20px;
+}      

@@ -107,198 +107,200 @@ Date Selection for Deadlines
         </div>
             
     <!-- Create table -->
-        <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
-            <thead>
-                <tr>
-                    <th>Club</th>
-                    <th>Size</th>
-                    <th>Hours/Week</th>
-                    <th>Comp Process</th>
-                    <th>Leadership Process</th>
-                    <th>Application Deadline</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($search_results as $result) { ?>
-                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class= "name"><?= $result["name"]; ?></td>
-                        <td><?= $result["size"]; ?></td>
-                        <td><?= $result["avghours"]; ?></td>
-                        <td><?= $result["comp"]; ?></td>
-                        <td><?= $result["leadership"]; ?></td>
-                        <td><?= $result["deadline"];?></td>
+        <footer class="footer">
+            <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
+                <thead>
+                    <tr>
+                        <th>Club</th>
+                        <th>Size</th>
+                        <th>Hours/Week</th>
+                        <th>Comp Process</th>
+                        <th>Leadership Process</th>
+                        <th>Application Deadline</th>
                     </tr>
-                <?php } ?> 
-                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                    <td class = "ellipsis">Lalala </td>
-                    <td>CS50 SUCKS</td>
-                    <td>harvardclubs.net</td>
-                    <td>CS50 ACTUALLY SUCKS</td>
-                    <td>SUCKS!!</td>
-                    <td>CAMBRIDGE</td>
-                </tr>   
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach($search_results as $result) { ?>
+                        <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                            <td class= "name"><?= $result["name"]; ?></td>
+                            <td><?= $result["size"]; ?></td>
+                            <td><?= $result["avghours"]; ?></td>
+                            <td><?= $result["comp"]; ?></td>
+                            <td><?= $result["leadership"]; ?></td>
+                            <td><?= $result["deadline"];?></td>
+                        </tr>
+                    <?php } ?> 
+                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>
+                                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                        <td class = "ellipsis">Lalala </td>
+                        <td>CS50 SUCKS</td>
+                        <td>harvardclubs.net</td>
+                        <td>CS50 ACTUALLY SUCKS</td>
+                        <td>SUCKS!!</td>
+                        <td>CAMBRIDGE</td>
+                    </tr>   
+                </tbody>
+            </table>
+        </footer>
         <script>sortable.init();</script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
