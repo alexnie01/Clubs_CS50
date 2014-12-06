@@ -13,7 +13,7 @@
     {
         // standard values for variables user entered into mainTemplate
         $search = $_POST["search"].'*';
-        $divisions = [$_POST["category"]];
+        $divisions = [$_POST["division"]];
         $size = $_POST["size"];
         $leadership = ($_POST["leadership"]);
         $min_hours = $_POST["min_hours"];
@@ -31,10 +31,10 @@
         }
         
         /**
-         * checks if user actually entered a specific category. If yes, uses wildcard
+         * checks if user actually entered a specific division. If yes, uses wildcard
          * so that all categories will be matched upon SQL query
          */
-        if($_POST["category"] == "All Categories")
+        if($_POST["division"] == "All Categories")
         {
             $divisions = ['*'];
         }
@@ -44,7 +44,7 @@
             $size = "*";
         }
         // checks if user wants only clubs with no comp
-        if($_POST["nocomp"] == "yes")
+        if($_POST["nocomp"] == "true")
         {
             $comp = "false";
         }
@@ -66,13 +66,13 @@
             $deadline = "*";
         }    
         
-        if($category == "")
+        if($divisions[0] == "")
         {
-            $category = "*";
+            $divisions[0] = "*";
         }
         
         // return search information
-        return search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions);
+        return search($search, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions);
     }
     
     /** returns complete info of all clubs matching intial search conditions
@@ -96,7 +96,7 @@
             $leadership = 2;
             $deadline = '*';
             // stores lookup for one tag
-            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id)"));
+            $result = array_unique(query("SELECT clubs.* FROM clubs JOIN tags ON (clubs.id = tags.id)"), SORT_REGULAR);
             /*
             WHERE
                 MATCH (clubs.name) AGAINST (? WITH QUERY EXPANSION) OR
@@ -123,7 +123,7 @@
             return -1;
         }
         
-        return array_unique($results);
+        return array_unique($results, SORT_REGULAR);
     }
     // add club to special tables: interest, history or club's I'm in by club_id
     function add_special($table, $user_id, $club_id)

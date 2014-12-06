@@ -4,7 +4,15 @@
         <title>Results</title>
     </head>
     <body>
-        <div><?php echo $search_results ?></div>
+        <?php 
+            foreach($search_results as $result)
+            {
+                foreach($result as $clubinfo)
+                {
+                    echo $clubinfo;
+                }   
+            }                
+             ?>
     </body>
 </html>
 
