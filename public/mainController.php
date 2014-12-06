@@ -1,7 +1,7 @@
  <?php
 
     // configuration (add back ../ after sending to Aditya)
-    require("includes/search.php");
+    require("../includes/search.php");
     
     // if user reached via GET
     if ($_SERVER["REQUEST_METHOD"] == "GET")
