@@ -145,16 +145,7 @@ Date Selection for Deadlines
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                 </tr>
-                <?php foreach ($searchresults as $result) { ?>
-                <tr>
-                    <td class = "ellipsis"><? = $result[] ?></td>
-                    <td class = "ellipsis"><? = $result[]; ?></td>
-                    <td><? = $result[]; ?></td>
-                    <td><? = $result[]; ?></td>
-                    <td><? = $result[]; ?></td>
-                    <td><? = $result[]; ?></td>
-                    <td><? = $result[]; }?></td>
-                </tr>
+                <?php $searchresults=array(array(0,1,2,3,4,5,6),array(0,1,2,3,4,5,6))?>
                 <tr>
                 <?php          
                     foreach ($searchresults as $result)
@@ -162,7 +153,7 @@ Date Selection for Deadlines
                         print("<tr>");
                         print("<td class = \"ellipsis\">{$result["name"]}</td>");
                         print("<td class = \"ellipsis\">{$result["category"]}</td>");
-                        print("<td>{$result["size"]}</td>");
+                        print("<td>?</td>", $result[0]);
                         print("<td>{$result["hours"]}</td>");
                         print("<td>{$result["nocomp"]}</td>");
                         print("<td>{$result["leadership"]}</td>");
