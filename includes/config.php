@@ -24,7 +24,7 @@
 
     // URL to which CS50 ID should return users;
     // must be registered with CS50, per https://manual.cs50.net/id/
-    define("RETURN_TO", "http://www.harvardclubs.net/return_to.php");
+    define("RETURN_TO", "http://www.harvardclubs.net/public/return_to.php");
 
     // CS50 Library; ideally, this should not be inside public_html (or DocumentRoot)
     require("CS50.php");
@@ -33,7 +33,7 @@
     session_start();
 
     // require authentication for all pages except /login.php, /logout.php, and /register.php
-    if (!in_array($_SERVER["PHP_SELF"], ["/login.php", "/logout.php", "/register.php"]))
+    if (!in_array($_SERVER["PHP_SELF"], ["/login.php", "/logout.php", "/register.php", "/mainController.php"]))
     {
         if (empty($_SESSION["id"]))
         {

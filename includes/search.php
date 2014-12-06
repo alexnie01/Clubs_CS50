@@ -97,7 +97,7 @@
                 clubs.avghours <= ? AND
                 (clubs.leadership = ? OR ? = 0) AND
                 (division.division = ? OR ? = '') AND
-                (clubs.deadline >= DATE(?) OR ? = '100-01-01')",
+                (clubs.deadline >= DATE(?) OR ? = '1000-01-01')",
                 $query, $query, $query, $size, $size, $comp, $comp, $min_hours, $max_hours, $leadership, $leadership, $division, $division, $deadline, $deadline), SORT_REGULAR);
 
             // push each club in the query result into $results

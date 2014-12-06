@@ -25,7 +25,7 @@ Date Selection for Deadlines
     <body>
             <div class="container-fluid">
             <h2>Harvard Clubs</h2>
-            <form class="form-inline" role="form" action="../public/mainController.php" method="post">
+            <form class="form-inline" role="form" action="mainController.php" method="post">
                 <div class = "row-fluid">
                     <div class="form-group">
                         <div class = "span5">
@@ -109,7 +109,6 @@ Date Selection for Deadlines
             <thead>
                 <tr>
                     <th>Club</th>
-                    <th>Category</th>
                     <th>Size</th>
                     <th>Hours/Week</th>
                     <th>Comp Process</th>
@@ -118,53 +117,44 @@ Date Selection for Deadlines
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class = "ellipsis"><a href="#" data-toggle="modal" data-target="#basicModal">Club</a></td>
+                <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                    <td class = "ellipsis">Club</td>
                     <td class = "ellipsis">Thomas bell </td>
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
-                <tr>
-                    <td class = "ellipsis">1</td>
+                <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                    <td class = "ellipsis">Club</td>
                     <td class = "ellipsis">Thomas bell </td>
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
-                <tr>
-                    <td class = "ellipsis">1</td>
+                <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                    <td class = "ellipsis">Club</td>
                     <td class = "ellipsis">Thomas bell </td>
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                     <td>Thomas bell</td>
                     <td>Brick lane, London</td>
-                    <td>thomas@yahoo.com</td>
                 </tr>
-                <?php $searchresults=[["a","b","c","d","e","f","g","h"],["i","j","k","l","m","n","o","p"]];?>
+                function search($query, $size, $comp, $min_hours, $max_hours, $leadership, $deadline, $divisions)
                 <tr>
-                <?php print($researchresults[0][0]); ?>
-                <?php foreach ($searchresults as $result) { ?>
-                    <tr>
-                        <td><?= $result[0]; ?></td>
-                        <td><?= $result[1]; ?></td>
-                        <td><?= $result[2]; ?></td>
-                        <td><?= $result[3]; ?></td>
-                        <td><?= $result[4]; ?></td>
-                        <td><?= $result[5]; ?></td>
-                        <td><?= $result[6]; }?></td>
+                <?php foreach ($search_results as $result) { ?>
+                    <tr class = clickableRow href="#" data-toggle="modal" data-target="#basicModal">
+                        <td><?= $result["name"]; ?></td>
+                        <td><?= $result["size"]; ?></td>
+                        <td><?= $result["avghours"]; ?></td>
+                        <td><?= $result["comp"]; ?></td>
+                        <td><?= $result["leadership"]; ?></td>
+                        <td><?= $result["deadline"]; }?></td>
                     </tr>    
             </tbody>
         </table>
-        <script>sortable.init();</script>  
-        
-        <a href="#" class="btn btn-lg btn-success"
-            data-toggle="modal"
-            data-target="#basicModal">Click to open Modal</a>
+        <script>sortable.init();</script>
             
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -178,7 +168,7 @@ Date Selection for Deadlines
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary">Star Club</button>
                     </div>
                 </div>
             </div>
