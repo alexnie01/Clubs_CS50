@@ -3,9 +3,6 @@
     // configuration
     require("../includes/config.php"); 
 
-    // configuration
-    require_once(dirname(__FILE__) . "/config.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +26,7 @@
                 echo "<div>Your email address is <b>" . htmlspecialchars($_SESSION["user"]["email"]) . "</b>.</div>";
         }
         else
-            echo "You are not logged in.  <a href='login.php'>Log in</a>.";
+            echo "You are not logged in.  <a href='templogin.php'>Log in</a>.";
   
       ?>
 
@@ -38,4 +35,3 @@
   </body>
 </html>
 
-?>
