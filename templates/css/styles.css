@@ -50,6 +50,7 @@ h5 {
 }
 .page-header {
     position: fixed;
+    float: top;
 } 
 tbody {
  width: 200px;
