@@ -52,4 +52,6 @@ tbody {
  height: 400px;
  overflow: auto;
 } 
-       
+.modal-body p {
+    word-wrap: break-word;
+}     
