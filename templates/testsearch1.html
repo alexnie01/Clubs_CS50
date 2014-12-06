@@ -24,86 +24,86 @@ Date Selection for Deadlines
     <body>
         <div class="page-header">
             <h1>HarvardClubs.Net</h1>
-            <div class="container-fluid">
-            <form class="form-inline" role="form" action="mainController.php" method="post">
-                <div class = "row-fluid">
-                    <div class="form-group">
-                        <div class = "span5">
-                            <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
+                <div class="container-fluid">
+                <form class="form-inline" role="form" action="mainController.php" method="post">
+                    <div class = "row-fluid">
+                        <div class="form-group">
+                            <div class = "span5">
+                                <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class = "span5">
+                                <select class="form-control" name="division">
+                                    <option value="All Categories" selected>All Categories</option>
+                                    <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
+                                    <option value="College Life">College Life</option>
+                                    <option value="Creative & Performing Arts">Creative & Performing Arts</option>
+                                    <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
+                                    <option value="Departmental">Departmental</option>
+                                    <option value="Gender & Sexuality">Gender & Sexuality</option>
+                                    <option value="Government & Politics">Government & Politics</option>
+                                    <option value="health & Wellness">Health & Wellness</option>
+                                    <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
+                                    <option value="Media & Publications">Media & Publications</option>
+                                    <option value="Peer Counseling/Peer Education">Peer Counseling/Peer Education</option>
+                                    <option value="Public Service">Public Service</option>
+                                    <option value="Religious & Spiritual">Religious & Spiritual</option>
+                                    <option value="Women's Initiatives">Women's Initiatives</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class = "span1">
+                                <select class="form-control" name="size">
+                                    <option value="0" selected>All Sizes</option>
+                                    <option value="1">0-10</option>
+                                    <option value="2">11-30</option>
+                                    <option value="3">31-50</option>
+                                    <option value="4">51-100</option>
+                                    <option value="5">101-200</option>
+                                    <option value="6">200+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class = "span1">
+                                <input type="checkbox" name="nocomp" class="form-control"> No Comp
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class = "span3">
+                                <select class="form-control" name="leadership">
+                                    <option value="0" selected>All Leadership Processes</option>
+                                    <option value="1">Elected</option>
+                                    <option value="2">Applications</option>
+                                    <option value="3">Other</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class = "span5">
-                            <select class="form-control" name="division">
-                                <option value="All Categories" selected>All Categories</option>
-                                <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
-                                <option value="College Life">College Life</option>
-                                <option value="Creative & Performing Arts">Creative & Performing Arts</option>
-                                <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
-                                <option value="Departmental">Departmental</option>
-                                <option value="Gender & Sexuality">Gender & Sexuality</option>
-                                <option value="Government & Politics">Government & Politics</option>
-                                <option value="health & Wellness">Health & Wellness</option>
-                                <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
-                                <option value="Media & Publications">Media & Publications</option>
-                                <option value="Peer Counseling/Peer Education">Peer Counseling/Peer Education</option>
-                                <option value="Public Service">Public Service</option>
-                                <option value="Religious & Spiritual">Religious & Spiritual</option>
-                                <option value="Women's Initiatives">Women's Initiatives</option>
-                            </select>
+                    <div class = "row-fluid">
+                        <div class="form-group">
+                            <div class="span3">
+                                <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span1">
-                            <select class="form-control" name="size">
-                                <option value="0" selected>All Sizes</option>
-                                <option value="1">0-10</option>
-                                <option value="2">11-30</option>
-                                <option value="3">31-50</option>
-                                <option value="4">51-100</option>
-                                <option value="5">101-200</option>
-                                <option value="6">200+</option>
-                            </select>
+                        <div class="form-group">
+                            <div class = "span3">
+                                <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span1">
-                            <input type="checkbox" name="nocomp" class="form-control"> No Comp
+                        <div class="form-group">
+                            <div class = "span3">
+                                Furthest Deadline: <input type="date" class="form-control" name="deadline" placeholder="Furthest Deadline" min="2000-01-02">
+                            </div>
                         </div>
+                        <button class="btn btn-info" type="submit">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            <select class="form-control" name="leadership">
-                                <option value="0" selected>All Leadership Processes</option>
-                                <option value="1">Elected</option>
-                                <option value="2">Applications</option>
-                                <option value="3">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class = "row-fluid">
-                    <div class="form-group">
-                        <div class="span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            Furthest Deadline: <input type="date" class="form-control" name="deadline" placeholder="Furthest Deadline" min="2000-01-02">
-                        </div>
-                    </div>
-                    <button class="btn btn-info" type="submit">
-                        <span class="glyphicon glyphicon-search"></span> Search
-                    </button>
-                </div>
-            </form>
-        </div> <!-- end of fluid-container -->
+                </form>
+            </div> <!-- end of fluid-container -->
         </div>
             
     <!-- Create table -->

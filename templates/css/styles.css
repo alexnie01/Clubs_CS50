@@ -12,7 +12,6 @@ table, .row {
             
 table
 {
-    table-layout:fixed;
     top:35%;
 }
 tbody
@@ -50,10 +49,6 @@ h5 {
 }
 .page-header {
     position: fixed;
-}
-
-thead {
-    display:inline-block
 }
  
 tbody {
