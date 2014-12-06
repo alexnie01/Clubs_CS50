@@ -27,11 +27,9 @@
     define("RETURN_TO", "http://www.harvardclubs.net/return_to.php");
 
     // CS50 Library; ideally, this should not be inside public_html (or DocumentRoot)
-    require_once(__DIR__ . "../CS50.php");
+    require("CS50.php");
 
-    // ensure $_SESSION exists
-    session_start();
-    // enable sessions
+    // enable sessions to track information in $_SESSION
     session_start();
 
     // require authentication for all pages except /login.php, /logout.php, and /register.php
