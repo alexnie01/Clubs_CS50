@@ -16,6 +16,24 @@
   print('</td>');
   print('</tr>');
 } ?>
+
+
+
+
+<?php          
+                    foreach ($searchresults as $result)
+                    {
+                        print("<tr>");
+                        print("<td class = \"ellipsis\">{$result["name"]}</td>");
+                        print("<td class = \"ellipsis\">{$result["category"]}</td>");
+                        print("<td>?</td>", $result[0]);
+                        print("<td>{$result["hours"]}</td>");
+                        print("<td>{$result["nocomp"]}</td>");
+                        print("<td>{$result["leadership"]}</td>");
+                        print("<td>{$result["deadline"]}</td>");
+                        print("</tr>");
+                    }
+                ?>
 </table>
 
 </body>

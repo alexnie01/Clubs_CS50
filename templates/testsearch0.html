@@ -145,23 +145,18 @@ Date Selection for Deadlines
                     <td>Brick lane, London</td>
                     <td>thomas@yahoo.com</td>
                 </tr>
-                <?php $searchresults=[[1,2,3],[6,7,8]];?>
+                <?php $searchresults=[[a,b,c,d,e,f,g,h],[i,j,k,l,m,n,o,p]];?>
                 <tr>
-                <?php          
-                    foreach ($searchresults as $result)
-                    {
-                        print("<tr>");
-                        print("<td class = \"ellipsis\">{$result["name"]}</td>");
-                        print("<td class = \"ellipsis\">{$result["category"]}</td>");
-                        print("<td>?abc</td>", $result[0]);
-                        print("<td>{$result["hours"]}</td>");
-                        print("<td>{$result["nocomp"]}</td>");
-                        print("<td>{$result["leadership"]}</td>");
-                        print("<td>{$result["deadline"]}</td>");
-                        print("</tr>");
-                    }
-                ?>
-                </tr>    
+                <?php foreach ($searchresults as $result) { ?>
+                    <tr>
+                        <td><?= $result[0]; ?></td>
+                        <td><?= $result[1]; ?></td>
+                        <td><?= $result[2]; ?></td>
+                        <td><?= $result[3]; ?></td>
+                        <td><?= $result[4]; ?></td>
+                        <td><?= $result[5]; ?></td>
+                        <td><?= $result[6]; }?></td>
+                    </tr>    
             </tbody>
         </table>
         <script>sortable.init();</script>  
