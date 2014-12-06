@@ -6,7 +6,11 @@
     // if user reached via GET
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        render("testsearch0.html", ["title" => "Search"]);
+        // performs empty search that retrieves all clubs
+        $search_results = search("", 0, true, 0, 1000, 0, '1000-01-01',[""]); 
+        
+        // renders first page
+        render("testsearch0.html", ["search_results" => $search_results]);
         print("GET request received");
 
     }
@@ -18,13 +22,12 @@
         // user submitted universal search
         $search_results = universal_search();
         
-            
         // retrieve function: given a $table variable and $user_id, retrieve from this $table
         
         // deletion funtion
         
         //return to mainTemplate page
-        render("../templates/resultsTemplate.html", ["search_results" => $search_results]);
+        render("testsearch0.html", ["search_results" => $search_results]);
         
     }
        
