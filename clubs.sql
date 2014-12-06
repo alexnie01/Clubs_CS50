@@ -32,7 +32,7 @@ CREATE TABLE `clubs` (
   `deadline` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='deadline refers to any critical deadline';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='deadline refers to any critical deadline';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `clubs` (
 
 LOCK TABLES `clubs` WRITE;
 /*!40000 ALTER TABLE `clubs` DISABLE KEYS */;
-INSERT INTO `clubs` VALUES (1,'Crimson',3,1,5,2,'2014-12-16'),(2,'Harvard Financial Analyst Club',4,1,2,1,'2014-12-31');
+INSERT INTO `clubs` VALUES (1,'Crimson',3,1,5,2,'2014-12-16'),(2,'Harvard Financial Analyst Club',4,1,2,1,'2014-12-31'),(3,'Society of Physics Students',2,0,0,1,'2014-12-17'),(4,'Harvard MIT Mathematics Tournament',1,0,0,3,'2014-12-17');
 /*!40000 ALTER TABLE `clubs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,7 +138,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Academics'),(2,'Fun'),(1,'\'Journalism\'');
+INSERT INTO `tags` VALUES (1,'Academics'),(2,'Fun'),(1,'\'Journalism\''),(3,'Departmental'),(3,'Physics'),(3,'Cool'),(4,'HMMT'),(3,'SPS'),(4,'Mathematics');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,4 +176,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-05  3:57:17
+-- Dump completed on 2014-12-05 19:55:29
