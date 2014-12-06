@@ -27,7 +27,14 @@ table, .row {
     text-overflow: hidden; 
     white-space: nowrap;
     width: inherit
-} 
+}
+
+h1 {
+    text-align: center;
+    color:black;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:300%;
+}
 h1 {
     text-align: center;
     color:black;
