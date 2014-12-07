@@ -136,7 +136,7 @@
             {
                 foreach($temp as $club)
                 {
-                    array_push($info, 1);
+                    array_push($info, $club);
                 }
             }
         }
