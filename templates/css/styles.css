@@ -1,14 +1,11 @@
-#mine
+//format for rows in table
+table, .row 
 {
-    color: blue;
-    background-color: red;
-}
-
-table, .row {
     display: block;
     max-width:90%;
     margin-left:1%; 
 }
+<<<<<<< HEAD
             
 table {
     width: 100%;
@@ -46,13 +43,24 @@ thead {
 tbody td, thead th {
     width: 19.2%;
     float: left;
-}
-            
-.top-buffer { 
-    margin-top:20px; 
+=======
+
+// adjust table height from top of page
+table
+{
+    top:35%;
 }
 
-.ellipsis { 
+// handling of table overflow for bottom of page
+tbody
+{
+    overflow-y:auto;
+>>>>>>> 19fe2c190ded2b0a5cba3630782854fdca3aada4
+}
+
+// style for each search result element
+.ellipsis 
+{ 
     overflow: hidden;
     -ms-text-overflow: ellipsis; 
     -o-text-overflow: hidden; 
@@ -60,45 +68,37 @@ tbody td, thead th {
     white-space: nowrap;
     width: inherit
 }
-.modal .modal-body {
+
+// styling for modals
+.modal .modal-body 
+{
     max-height: 420px;
     overflow-y: auto;
 }
-h1 {
-    text-align: center;
-    color:black;
-    font-family:Verdana, Geneva, sans-serif;
-    font-size:400%;
-}
-h5 {
+
+h5 
+{
     text-align: left;
     color:black;
     font-family:Verdana, Geneva, sans-serif;
     font-size:100%;
 }
-.page-header {
-    position: fixed;
-    margin-top: 0px;
-    clear:both;
-    padding-top:0px;
+
+// background-color for html
+body
+{
+    margin:0;
+    background-color:#CCE6FF;
 }
- 
-tbody {
- width: 200px;
- height: 400px;
+
+// styling for table elements
+tbody 
+{
  overflow: auto;
-} 
+}
+
+// styling for paragraphs in modal descriptions of each club
 .modal-body p {
     word-wrap: break-word;
-}
-/*
-.footer {
-  position: relative;
-  margin-top: 150px; /* spce for page-header */
-  /*
-  height: 300px;
-  clear:both;
-  padding-top:20px;
-}
-*/
-    
+}     
+
