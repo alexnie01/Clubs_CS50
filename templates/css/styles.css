@@ -5,6 +5,45 @@ table, .row
     max-width:90%;
     margin-left:1%; 
 }
+<<<<<<< HEAD
+            
+table {
+    width: 100%;
+    overflow-x: auto;
+    margin-top:100px;
+}
+
+thead, tbody, tr, td, th {
+    display: block; 
+}
+
+tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+thead th {
+    height: 30px;
+
+    /*text-align: left;*/
+}
+
+tbody {
+    height: 400px;
+    overflow-y: auto;
+}
+
+thead {
+    /* fallback */
+}
+
+
+tbody td, thead th {
+    width: 19.2%;
+    float: left;
+=======
 
 // adjust table height from top of page
 table
@@ -16,6 +55,7 @@ table
 tbody
 {
     overflow-y:auto;
+>>>>>>> 19fe2c190ded2b0a5cba3630782854fdca3aada4
 }
 
 // style for each search result element
