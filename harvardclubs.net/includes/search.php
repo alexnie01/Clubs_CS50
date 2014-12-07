@@ -121,7 +121,7 @@
         // no results returned
         if(empty($results))
         {
-            return [-1,-1];
+            return -1;
         }
         
         $results = array_unique($results, SORT_REGULAR);
