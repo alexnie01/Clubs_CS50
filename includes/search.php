@@ -129,14 +129,14 @@
         // retrieve relevant club information for modal window
         foreach($results as $result)
         {
-            $temp = query("SELECT * FROM info WHERE id = ?", $result["id"]);
+            $temp = query("SELECT * FROM info WHERE id = ? OR ? = 0", $result["id"], $id);
             
             // make sure that query found club matching the id or else $temp is false
             if($temp != false)
             {
                 foreach($temp as $club)
                 {
-                    array_push($info, $club);
+                    array_push($info, 1);
                 }
             }
         }

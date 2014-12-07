@@ -24,19 +24,20 @@ Deadline
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap Includes and Self-Wrote Styles Sheet-->
+        
+        <!-- Bootstrap's stylesheets -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        
+        <!--Customized stylesheet -->
         <link rel="stylesheet" href="css/styles.css">
+        
         <title>Clubs.CS50</title>
+        
         <!-- Ajax and other interactive scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        
-        <!-- sortable API -->
-        <link rel="stylesheet" href="../templates/sortable-0.5.0/js/sortable-theme-dark.css" />
-        <script src="../templates/sortable-0.5.0/js/sortable.min.js"></script> 
     </head>
-    <body>                                          
+    <body> 
         <!-- Navbar to contain searchbar -->
         <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
@@ -117,7 +118,6 @@ Deadline
                         <span class="glyphicon glyphicon-search"></span> Search
                     </button>
                 </form>
-<<<<<<< HEAD
               </div>
             </div>
         </nav>
@@ -148,8 +148,8 @@ Deadline
                         <!-- Display clubs that match profile -->
                         <?php if($search_results != -1){
                                 foreach($search_results as $result) { ?>
-                                <!-- clickable rows to link to modal for more information -->
-                                <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                                <!-- clickable rows to link to modal for more information. Pass on information through data-club-id -->
+                                <tr class="clickableRow" href="#" data-toggle="modal" data-target="#basicModal" data-club-id="<?= $result['id'] ?>">
                                     <td><?= $result["name"]; ?></td>
                                     <td><?= $result["size"]; ?></td>
                                     <td><?= $result["avghours"]; ?></td>
@@ -162,55 +162,35 @@ Deadline
                             <td colspan="6" data-align="center">No matching clubs were found.</td>
                         </tr>
                         <?php } ?>
+                        <!-- detects when rows are clicked in order to extract relevant info from $info -->
+                        <script>
+                            /*
+                            // blank variables to store id and club of clicked row in correct scope
+                            var id;
+                            var club;
+                            
+                            $(".clickableRow").click(function() {
+                                // extract club id from clicked row
+                                id = $(".clickableRow").data("club-id");
+
+                                // store club descriptions
+                                var results = <?php echo json_encode($info); ?>
+
+                                for(var result in results)
+                                {
+                                    if(result['id'] == id)
+                                    {
+                                        club = result;
+                                        break;
+                                    }
+                                }
+                            });
+                            */
+                        </script>
                     </tbody>
                 </table>
             </div>
         </div>
-    
-=======
-            </div> <!-- end of fluid-container -->
-        </div> <!-- end of page-header -->
-            
-    <!-- Create table -->
-        <table class = "table table-bordered table-hover container-fluid sortable-theme-dark" data-sortable>
-            <div class = "span12">
-                <thead>
-                    <tr>
-                        <th>Club</th>
-                        <th>Size</th>
-                        <th>Hours/Week</th>
-                        <th>Comp Process</th>
-                        <th>Leadership Process</th>
-                        <th>Application Deadline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Display clubs that match profile -->
-                    <?php if($search_results != -1){
-                            foreach($search_results as $result) { ?>
-                            <!-- clickable rows to link to modal for more information -->
-                            <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                                <td class= "name"><?= $result["name"]; ?></td>
-                                <td><?= $result["size"]; ?></td>
-                                <td><?= $result["avghours"]; ?></td>
-                                <td><?= $result["comp"]; ?></td>
-                                <td><?= $result["leadership"]; ?></td>
-                                <td><?= $result["deadline"];?></td>
-                            </tr>
-                    <?php } } ?>
-                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class= "name">CS50</td>
-                        <td>CS50CS50</td>
-                        <td>CS50CS50CS50</td>
-                        <td>CS50CS50</td>
-                        <td>CS50</td>
-                        <td>CS50CS50CS50CS50</td>
-                    </tr>     
-                </tbody>
-            </div>
-        </table>
->>>>>>> d3cdbb9e724e0577999467e87bc8b1a876e7ab88
-        <script>sortable.init();</script>
         
         <!-- Modal for Club description, etc. after row is clicked -->    
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -221,31 +201,39 @@ Deadline
                     <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
                     </div>
                     <div class="modal-body">
-                        <h6>Description:<?= $result["description"]; ?> </h6>
-                        <div class = "fluid-container">
-                                <p>afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfhaafdasuifhaiudfhaudifhauidfhauidfhaduifhauidfhaafdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                bfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                cfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                dfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                efdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                </p>
-                                <h6>Link: <?= $result["link"]; ?></h6>
-                                <h6>Website: <?= $result["website"]; ?></h6>
-                                <h6>Contact Info: <?= $result["contact info"]; ?></h6>
-                                <h6>Size: <?= $result["size"]; ?></h6>
-                                <h6>Hours/Week: <?= $result["hours"]; ?></h6>
-                                <h6>Meeting Time: <?= $result["name"]; ?></h6>
-                                <h6>Meeting Place: <?= $result["name"]; ?></h6>
-                                <h6>Comp Process: <?= $result["name"]; ?></h6>
-                                <h6>Leadership Process: <?= $result["name"]; ?></h6>
-                                <h6>Application Deadline: <?= $result["name"]; ?></h6>
+                        <div class = "fluid-container" id="modal-id">
+                            <script>
+                                // dump info of clubs returned by search
+                                var results = <?php echo json_encode($info); ?>;
+                                alert(results);
+                                $(".clickableRow").click(function() {
+                                    // club id of clicked row
+                                    var id = $(".clickableRow").data("club-id");
+                                    
+                                    // empty variable to hold club in scope
+                                    var club;
+                                    var tester = typeof result;
+                                    alert(tester);
+                                    // search results for correct information of clicked row
+                                    for (var result in results)
+                                    {
+                                        if(result['id'] == id)
+                                        {
+                                            document.getElementById("modal-id").innerHTML= result['id'];
+                                            break;
+                                        }
+                                    }
+                                });
+                            </script>
+                            <h6>Website: <?= $result["website"]; ?></h6>
+                            <h6>Contact Info: <?= $result["contact info"]; ?></h6>
+                            <h6>Size: <?= $result["size"]; ?></h6>
+                            <h6>Hours/Week: <?= $result["hours"]; ?></h6>
+                            <h6>Meeting Time: <?= $result["name"]; ?></h6>
+                            <h6>Meeting Place: <?= $result["name"]; ?></h6>
+                            <h6>Comp Process: <?= $result["name"]; ?></h6>
+                            <h6>Leadership Process: <?= $result["name"]; ?></h6>
+                            <h6>Application Deadline: <?= $result["name"]; ?></h6>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Club I'm In</button>
