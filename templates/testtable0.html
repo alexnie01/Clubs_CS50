@@ -15,18 +15,22 @@
 
     <p>My first paragraph.</p>
         <table class = "table table-bordered table-hover" data-url="data1.json" data-height="299" data-sort-name="name" data-sort-order="desc">
-            <tr>
-                <th data-sortable="true">Name</th>
-                <th colspan="2" data-sortable="true">Telephone</th>
-            </tr>
-            <tr>
-                <td>Bill Gates</td>
-                <td>555 77 854</td>
-            </tr>
-            <tr>
-                <td>Joe Smith</td>
-                <td>111 722 3434</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th data-field="name" data-sortable="true">Name</th>
+                    <th data-field="phone" colspan="2" data-sortable="true">Telephone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bill Gates</td>
+                    <td>555 77 854</td>
+                </tr>
+                <tr>
+                    <td>Joe Smith</td>
+                    <td>111 722 3434</td>
+                </tr>
+            <tbody>
         </table>
         <script>sortable.init();</script>
         <link rel="stylesheet" href="/sortable-0.5.0/css/sortable-theme-dark.css" />
