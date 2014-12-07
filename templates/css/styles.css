@@ -36,16 +36,6 @@ tbody
     overflow-y: auto;
 }
 
-// styling for title
-h1 
-{
-    text-align: center;
-    color: white; 
-    background-color: crimson;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 800%;
-}
-
 h5 
 {
     text-align: left;
@@ -53,12 +43,14 @@ h5
     font-family:Verdana, Geneva, sans-serif;
     font-size:100%;
 }
+
 // background-color for html
 body
 {
     margin:0;
     background-color:#CCE6FF;
 }
+
 // styling for table elements
 tbody 
 {
@@ -69,3 +61,4 @@ tbody
 .modal-body p {
     word-wrap: break-word;
 }     
+
