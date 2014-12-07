@@ -15,21 +15,18 @@ Date Selection for Deadlines
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
-        <script src="sortable.min.js"></script>    
+        <script src="sortable.min.js"></script>         
     </head>
 
     <body>
-        <div class="page-header">
-            <h1>HarvardClubs.Net</h1>
             <div class="container-fluid">
+            <h2>Harvard Clubs</h2>
             <form class="form-inline" role="form" action="mainController.php" method="post">
                 <div class = "row-fluid">
                     <div class="form-group">
                         <div class = "span5">
-                            <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
+                            <input type="text" class="form-control" name="search" placeholder="Search Clubs">
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,12 +54,11 @@ Date Selection for Deadlines
                         <div class = "span1">
                             <select class="form-control" name="size">
                                 <option value="0" selected>All Sizes</option>
-                                <option value="1">0-10</option>
-                                <option value="2">11-30</option>
-                                <option value="3">31-50</option>
-                                <option value="4">51-100</option>
-                                <option value="5">101-200</option>
-                                <option value="6">200+</option>
+                                <option value="1">0-20</option>
+                                <option value="2">21-50</option>
+                                <option value="3">51-100</option>
+                                <option value="4">101-200</option>
+                                <option value="5">200+</option>
                             </select>
                         </div>
                     </div>
@@ -85,12 +81,12 @@ Date Selection for Deadlines
                 <div class = "row-fluid">
                     <div class="form-group">
                         <div class="span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
+                            <input type="text" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class = "span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
+                            <input type="text" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
                         </div>
                     </div>
                     <div class="form-group">
@@ -104,13 +100,19 @@ Date Selection for Deadlines
                 </div>
             </form>
         </div> <!-- end of fluid-container -->
-        </div>
-            
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!--<script src="sortable-0.5.0/js/sortable.min.js"></script>-->
+    <!--<link rel="stylesheet" href="sortable-0.5.0/css/sortable-theme-bootstrap.css" />-->
+    <link rel="stylesheet" href="sortable-theme-dark.css" />
+    <script src="sortable.min.js"></script>  
+    
     <!-- Create table -->
         <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
             <thead>
                 <tr>
                     <th>Club</th>
+                    <th>Category</th>
                     <th>Size</th>
                     <th>Hours/Week</th>
                     <th>Comp Process</th>
@@ -119,75 +121,39 @@ Date Selection for Deadlines
                 </tr>
             </thead>
             <tbody>
-                <!-- Display clubs that match profile -->
-                <?php if($search_results != -1) {
-                    foreach($search_results as $result) { ?>
-                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class= "name"><?= $result["name"]; ?></td>
-                        <td><?= $result["size"]; ?></td>
-                        <td><?= $result["avghours"]; ?></td>
-                        <td><?= $result["comp"]; ?></td>
-                        <td><?= $result["leadership"]; ?></td>
-                        <td><?= $result["deadline"];?></td>
-                    </tr>
-                <?php } } ?>    
+                <tr>
+                    <td>1</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                    <td>Thomas bell</td>
+                    <td>Brick lane, London</td>
+                    <td>thomas@yahoo.com</td>
+                </tr>
             </tbody>
         </table>
         <script>sortable.init();</script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
-        <script src="sortable.min.js"></script>    
-            
-        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                    <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
-                    </div>
-                    <div class="modal-body">
-                        <h6>Description:<?= $result["description"]; ?> </h6>
-                        <div class = "fluid-container">
-                                <p>afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfhaafdasuifhaiudfhaudifhauidfhauidfhaduifhauidfhaafdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                bfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                cfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                dfdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                efdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                afdasuifhaiudfhaudifhauidfhauidfhaduifhauidfha
-                                </p>
-                                <h6>Link: <?= $result["link"]; ?></h6>
-                                <h6>Website: <?= $result["website"]; ?></h6>
-                                <h6>Contact Info: <?= $result["contact info"]; ?></h6>
-                                <h6>Size: <?= $result["size"]; ?></h6>
-                                <h6>Hours/Week: <?= $result["hours"]; ?></h6>
-                                <h6>Meeting Time: <?= $result["name"]; ?></h6>
-                                <h6>Meeting Place: <?= $result["name"]; ?></h6>
-                                <h6>Comp Process: <?= $result["name"]; ?></h6>
-                                <h6>Leadership Process: <?= $result["name"]; ?></h6>
-                                <h6>Application Deadline: <?= $result["name"]; ?></h6>
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Club I'm In</button>
-                        <button type="button" class="btn btn-primary">Star Club</button>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <script>
-            /**
-            function getClubName (this) {
-                var name = this.getElementByClass("name").textContent;
-                return name;
-                // return $("#tdid").text();
-            }
-            */
-        </script>
+        <script src="sortable.min.js"></script> 
+        
     </body>
 </html>
 
