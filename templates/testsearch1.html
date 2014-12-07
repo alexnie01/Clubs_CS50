@@ -1,110 +1,139 @@
 <!DOCTYPE html>
 <!--
-Search
-Dropdown Category
-Dropdown Size
+Form Includes:
+User-Inputed earch
+Dropdown Category/Division
+Dropdown Sizess
 Checkbox Box Comp Process
 Dropdown Leadership Process
-Inputted MinHours
-Inputted MaxHours
+User-Inputted MinHours
+User-Inputted MaxHours
 Date Selection for Deadlines
+-->
+
+<!--
+Table Includes:
+Name
+Size
+Hours/Week
+Comp Process
+Leadership Process
+Deadline
 -->
 
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap Includes and Self-Wrote Styles Sheet-->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/styles.css">
+        
+        <!-- Ajax and other interactive scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        <!-- sortable API -->
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
     </head>
-
     <body>
+        <!-- Page Header Fixed On Top Includes Web Title and Form -->
         <div class="page-header">
             <h1>HarvardClubs.Net</h1>
-            <div class="container-fluid">
-            <form class="form-inline" role="form" action="mainController.php" method="post">
-                <div class = "row-fluid">
-                    <div class="form-group">
-                        <div class = "span5">
-                            <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
+                <!-- Start Form With fluid container -->
+                <div class="container-fluid">
+                <!-- Send to mainController.php -->
+                <form class="form-inline" role="form" action="mainController.php" method="post">
+                    <!-- First row in the search bar -->
+                    <div class = "row-fluid">
+                        <!-- Search - user-inputted text -->
+                        <div class="form-group">
+                            <div class = "span5">
+                                <input type="search" class="form-control" name="search" autocomplete="on" placeholder="Search Clubs">
+                            </div>
+                        </div>
+                        <!-- Dropdown for division -->
+                        <div class="form-group">
+                            <div class = "span5">
+                                <select class="form-control" name="division">
+                                    <option value="All Categories" selected>All Categories</option>
+                                    <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
+                                    <option value="College Life">College Life</option>
+                                    <option value="Creative & Performing Arts">Creative & Performing Arts</option>
+                                    <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
+                                    <option value="Departmental">Departmental</option>
+                                    <option value="Gender & Sexuality">Gender & Sexuality</option>
+                                    <option value="Government & Politics">Government & Politics</option>
+                                    <option value="health & Wellness">Health & Wellness</option>
+                                    <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
+                                    <option value="Media & Publications">Media & Publications</option>
+                                    <option value="Peer Counseling/Peer Education">Peer Counseling/Peer Education</option>
+                                    <option value="Public Service">Public Service</option>
+                                    <option value="Religious & Spiritual">Religious & Spiritual</option>
+                                    <option value="Women's Initiatives">Women's Initiatives</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Dropdown for size -->
+                        <div class="form-group">
+                            <div class = "span1">
+                                <select class="form-control" name="size">
+                                    <option value="0" selected>All Sizes</option>
+                                    <option value="1">0-10</option>
+                                    <option value="2">11-30</option>
+                                    <option value="3">31-50</option>
+                                    <option value="4">51-100</option>
+                                    <option value="5">101-200</option>
+                                    <option value="6">200+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Checkbox for nocomp -->
+                        <div class="form-group">
+                            <div class = "span1">
+                                <input type="checkbox" name="nocomp" class="form-control"> No Comp
+                            </div>
+                        </div>
+                        <!-- Dropdown for leadership process -->
+                        <div class="form-group">
+                            <div class = "span3">
+                                <select class="form-control" name="leadership">
+                                    <option value="0" selected>All Leadership Processes</option>
+                                    <option value="1">Elected</option>
+                                    <option value="2">Applications</option>
+                                    <option value="3">Other</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class = "span5">
-                            <select class="form-control" name="division">
-                                <option value="All Categories" selected>All Categories</option>
-                                <option value="Academic & Pre-Professional">Academic & Pre-Professional</option>
-                                <option value="College Life">College Life</option>
-                                <option value="Creative & Performing Arts">Creative & Performing Arts</option>
-                                <option value="Cultural & Racial Initiatives">Cultural & Racial Initiatives</option>
-                                <option value="Departmental">Departmental</option>
-                                <option value="Gender & Sexuality">Gender & Sexuality</option>
-                                <option value="Government & Politics">Government & Politics</option>
-                                <option value="health & Wellness">Health & Wellness</option>
-                                <option value="Hobbies/Special Interests">Hobbies/Special Interests</option>
-                                <option value="Media & Publications">Media & Publications</option>
-                                <option value="Peer Counseling/Peer Education">Peer Counseling/Peer Education</option>
-                                <option value="Public Service">Public Service</option>
-                                <option value="Religious & Spiritual">Religious & Spiritual</option>
-                                <option value="Women's Initiatives">Women's Initiatives</option>
-                            </select>
+                    <!-- Start of new row (2nd row) -->
+                    <div class = "row-fluid">
+                        <!-- Min Hours/Week Text Inputted by User -->
+                        <div class="form-group">
+                            <div class="span3">
+                                <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span1">
-                            <select class="form-control" name="size">
-                                <option value="0" selected>All Sizes</option>
-                                <option value="1">0-10</option>
-                                <option value="2">11-30</option>
-                                <option value="3">31-50</option>
-                                <option value="4">51-100</option>
-                                <option value="5">101-200</option>
-                                <option value="6">200+</option>
-                            </select>
+                        <!-- Max Hours/Week Text Inputted by User -->
+                        <div class="form-group">
+                            <div class = "span3">
+                                <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span1">
-                            <input type="checkbox" name="nocomp" class="form-control"> No Comp
+                        <!-- Furtherest Deadline Date Inputted by User -->
+                        <div class="form-group">
+                            <div class = "span3">
+                                Furthest Deadline: <input type="date" class="form-control" name="deadline" placeholder="Furthest Deadline" min="2000-01-02">
+                            </div>
                         </div>
+                        <!-- Search Button Using Bootstrap Glyph -->
+                        <button class="btn btn-info" type="submit">
+                            <span class="glyphicon glyphicon-search"></span> Search
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            <select class="form-control" name="leadership">
-                                <option value="0" selected>All Leadership Processes</option>
-                                <option value="1">Elected</option>
-                                <option value="2">Applications</option>
-                                <option value="3">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class = "row-fluid">
-                    <div class="form-group">
-                        <div class="span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="min_hours" placeholder="Minimum Hours/Week">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            <input type="number" min="0" step="any" max="128" class="form-control" name="max_hours" placeholder="Maximum Hours/Week">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class = "span3">
-                            Furthest Deadline: <input type="date" class="form-control" name="deadline" placeholder="Furthest Deadline" min="2000-01-02">
-                        </div>
-                    </div>
-                    <button class="btn btn-info" type="submit">
-                        <span class="glyphicon glyphicon-search"></span> Search
-                    </button>
-                </div>
-            </form>
-        </div> <!-- end of fluid-container -->
-        </div>
+                </form>
+            </div> <!-- end of fluid-container -->
+        </div> <!-- end of page-header -->
             
     <!-- Create table -->
         <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
@@ -120,23 +149,26 @@ Date Selection for Deadlines
             </thead>
             <tbody>
                 <!-- Display clubs that match profile -->
-                <?php if($search_results != -1) {
-                    foreach($search_results as $result) { ?>
-                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class= "name"><?= $result["name"]; ?></td>
-                        <td><?= $result["size"]; ?></td>
-                        <td><?= $result["avghours"]; ?></td>
-                        <td><?= $result["comp"]; ?></td>
-                        <td><?= $result["leadership"]; ?></td>
-                        <td><?= $result["deadline"];?></td>
-                    </tr>
+                <?php if($search_results != -1){
+                        foreach($search_results as $result) { ?>
+                        <!-- clickable rows to link to modal for more information -->
+                        <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
+                            <td class= "name"><?= $result["name"]; ?></td>
+                            <td><?= $result["size"]; ?></td>
+                            <td><?= $result["avghours"]; ?></td>
+                            <td><?= $result["comp"]; ?></td>
+                            <td><?= $result["leadership"]; ?></td>
+                            <td><?= $result["deadline"];?></td>
+                        </tr>
                 <?php } } ?>    
             </tbody>
         </table>
+    
         <script>sortable.init();</script>
         <link rel="stylesheet" href="sortable-theme-dark.css" />
         <script src="sortable.min.js"></script>    
-            
+        
+        <!-- Modal for Club description, etc. after row is clicked -->    
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -179,15 +211,6 @@ Date Selection for Deadlines
             </div>
           </div>
         </div>
-        <script>
-            /**
-            function getClubName (this) {
-                var name = this.getElementByClass("name").textContent;
-                return name;
-                // return $("#tdid").text();
-            }
-            */
-        </script>
     </body>
 </html>
 

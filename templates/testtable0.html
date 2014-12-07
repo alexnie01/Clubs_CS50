@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
-
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="sortable-theme-dark.css" />
+        <script src="sortable.min.js"></script>    
+    </head>
     <body>
 
     <h1>My First Heading</h1>
 
     <p>My first paragraph.</p>
-        <table width = "100%" border = "1">
+        <table class="table table-bordered table-hover container-fluid sortable-theme-bootstrap" data-sortable>
             <tr>
                 <th>Name</th>
                 <th colspan="2">Telephone</th>
@@ -20,6 +28,10 @@
                 <td>111 722 3434</td>
             </tr>
         </table>
+        <script>sortable.init();</script>
+        <link rel="stylesheet" href="sortable-0.5.0/css/sortable-theme-dark.css" />
+        <script src="sortable-0.5.0/js/sortable.min.js"></script>    
+            
     </body>
 </html>
 
