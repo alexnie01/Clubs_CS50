@@ -149,7 +149,7 @@ Deadline
                         <?php if($search_results != -1){
                                 foreach($search_results as $result) { ?>
                                 <!-- clickable rows to link to modal for more information. Pass on information through data-club-id -->
-                                <tr class="clickableRow" href="#" data-toggle="modal" data-target="#basicModal" data-club-id="<?= $result['id'] ?>">
+                                <tr class="clickableRow" href="#" data-toggle="modal" data-target="#basicModal" data-id="<?= $result['id'] ?>">
                                     <td><?= $result["name"]; ?></td>
                                     <td><?= $result["size"]; ?></td>
                                     <td><?= $result["avghours"]; ?></td>
@@ -162,115 +162,71 @@ Deadline
                             <td colspan="6" data-align="center">No matching clubs were found.</td>
                         </tr>
                         <?php } ?>
-                        <!-- detects when rows are clicked in order to extract relevant info from $info -->
-                        <script>
-                            /*
-                            // blank variables to store id and club of clicked row in correct scope
-                            var id;
-                            var club;
-                            
-                            $(".clickableRow").click(function() {
-                                // extract club id from clicked row
-                                id = $(".clickableRow").data("club-id");
-
-                                // store club descriptions
-                                var results = <?php echo json_encode($info); ?>
-
-                                for(var result in results)
-                                {
-                                    if(result['id'] == id)
-                                    {
-                                        club = result;
-                                        break;
-                                    }
-                                }
-                            });
-                            */
-                        </script>
                     </tbody>
                 </table>
             </div>
-        </div>
-            
-    <!-- Create table -->
-        <table class = "table table-bordered table-hover container-fluid sortable-theme-dark" data-sortable>
-                <thead>
-                    <tr>
-                        <th>Club</th>
-                        <th>Size</th>
-                        <th>Hours/Week</th>
-                        <th>Comp Process</th>
-                        <th>Leadership Process</th>
-                        <th>Application Deadline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Display clubs that match profile -->
-                    <?php if($search_results != -1){
-                            foreach($search_results as $result) { ?>
-                            <!-- clickable rows to link to modal for more information -->
-                            <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                                <td class="name filterable-cell"><?= $result["name"]; ?></td>
-                                <td class="filterable-cell"><?= $result["size"]; ?></td>
-                                <td class="filterable-cell"><?= $result["avghours"]; ?></td>
-                                <td class="filterable-cell"><?= $result["comp"]; ?></td>
-                                <td class="filterable-cell"><?= $result["leadership"]; ?></td>
-                                <td class="filterable-cell"><?= $result["deadline"];?></td>
-                            </tr>
-                    <?php } } ?>
-                    <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class="name filterable-cell">CS50</td>
-                        <td class="filterable-cell">CS50CS50</td>
-                        <td class="filterable-cell">CS50CS50CS50</td>
-                        <td class="filterable-cell">CS50CS50</td>
-                        <td class="filterable-cell">>CS50</td>
-                        <td class="filterable-cell">CS50CS50CS50CS50</td>
-                    </tr>     
-                </tbody>
-        </table>
-        
+        </div>        
         <!-- Modal for Club description, etc. after row is clicked -->    
         <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                    <h3 class="modal-title" id="myModalLabel" align = "center">Club Name</h3>
+                    <h3 class="modal-title" id="Modal-Title" align="center">Club Name</h3>
                     </div>
                     <div class="modal-body">
                         <div class = "fluid-container" id="modal-id">
                             <script>
                                 // dump info of clubs returned by search
-                                var results = <?php echo json_encode($info); ?>;
-                                alert(results);
+                                var results = <?php echo json_encode($search_results); ?>;
+                                var infos = <?php echo json_encode($info); ?>;
+                                
                                 $(".clickableRow").click(function() {
                                     // club id of clicked row
-                                    var id = $(".clickableRow").data("club-id");
-                                    
+                                    var id = $(this).data("id");
                                     // empty variable to hold club in scope
                                     var club;
-                                    var tester = typeof result;
-                                    alert(tester);
-                                    // search results for correct information of clicked row
+                                    var club_info;
+                                    
+                                    // search for table information of clicked row
                                     for (var result in results)
                                     {
-                                        if(result['id'] == id)
+                                        if(results[result]['id'] == id)
                                         {
-                                            document.getElementById("modal-id").innerHTML= result['id'];
+                                            club = results[result];
                                             break;
                                         }
                                     }
+                                    
+                                    // search results for correct information of clicked row
+                                    for (var info in infos)
+                                    {
+                                        if(infos[info]['id'] == id)
+                                        {
+                                            club_info = infos[info];
+                                            break;
+                                        }
+                                    }
+                                    // modal output for title
+                                    document.getElementById("Modal-Title").innerHTML = club['name'];
+                                    
+                                    /**
+                                     *  modal output for descriptions: decided against iterating through arrays since 
+                                     *  certain attributes need special formatting
+                                     */
+                                    document.getElementById("modal-id").innerHTML =
+                                        "<p align='center'>Website: " + "<a href=\'http://www." + club_info['website'] + "\'>" + club_info['website'] + "</a></p>" +
+                                        "<p><b>Description: </b>" + club_info['description']+"</p>" +
+                                        "<p><b>Comp: </b>" + club['comp'] + "</p>" +
+                                        "<p><b>Contact Info: </b>" + club_info['contact'] + "</p>" +
+                                        "<p><b>Meeting Time: </b>" + club_info['meeting time'] + "</p>" +
+                                        "<p><b>Meeting Place: </b>" + club_info['meeting place'] + "</p>" +
+                                        "<p><b>Website </b>" + club_info['website'] + "</p>" +
+                                        "<p><b>Size: </b>" + club['size'] + "</p>" +
+                                        "<p><b>Average Hours/Week: </b>" + club['avghours'] + "</p>" +
+                                        "<p><b>Application Deadline: </b>" + club['deadline'] + "</p>";
                                 });
                             </script>
-                            <h6>Website: <?= $result["website"]; ?></h6>
-                            <h6>Contact Info: <?= $result["contact info"]; ?></h6>
-                            <h6>Size: <?= $result["size"]; ?></h6>
-                            <h6>Hours/Week: <?= $result["hours"]; ?></h6>
-                            <h6>Meeting Time: <?= $result["name"]; ?></h6>
-                            <h6>Meeting Place: <?= $result["name"]; ?></h6>
-                            <h6>Comp Process: <?= $result["name"]; ?></h6>
-                            <h6>Leadership Process: <?= $result["name"]; ?></h6>
-                            <h6>Application Deadline: <?= $result["name"]; ?></h6>
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Club I'm In</button>
