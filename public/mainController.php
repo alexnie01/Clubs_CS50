@@ -11,14 +11,12 @@
         
         // renders first page
         render("testsearch1.html", ["search_results" => $results[0], "info" => $results[1]]);
-        print("GET request received");
 
     }
     
     // else if user reached page via POST (as by submitting a form via POST)
     else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        print("POST request received");
         // user submitted universal search
         $results = universal_search();
         
