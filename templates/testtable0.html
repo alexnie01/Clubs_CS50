@@ -6,15 +6,18 @@
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="/sortable-0.5.0/css/sortable-theme-dark.css" />
-        <script src="/sortable-0.5.0/js/sortable.min.js"></script>    
+
+
+        <link rel="stylesheet" href="sortable-theme-dark.css" />
+        <script src="sortable.min.js"></script>
+  
     </head>
     <body>
 
     <h1>My First Heading</h1>
 
     <p>My first paragraph.</p>
-        <table class = "table table-bordered table-hover" data-url="data1.json" data-height="299" data-sort-name="name" data-sort-order="desc">
+        <table class = "table table-bordered table-hover sortable-theme-dark" data-sortable>
             <thead>
                 <tr>
                     <th data-field="name" data-sortable="true">Name</th>
@@ -31,11 +34,8 @@
                     <td>111 722 3434</td>
                 </tr>
             <tbody>
-        </table>
+        </table>  
         <script>sortable.init();</script>
-        <link rel="stylesheet" href="/sortable-0.5.0/css/sortable-theme-dark.css" />
-        <script src="/sortable-0.5.0/js/sortable.min.js"></script>      
-        
             
     </body>
 </html>
