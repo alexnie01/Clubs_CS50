@@ -137,7 +137,6 @@ Deadline
             
     <!-- Create table -->
         <table class = "table table-bordered table-hover container-fluid sortable-theme-dark" data-sortable>
-            <div class = "span12">
                 <thead>
                     <tr>
                         <th>Club</th>
@@ -154,24 +153,23 @@ Deadline
                             foreach($search_results as $result) { ?>
                             <!-- clickable rows to link to modal for more information -->
                             <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                                <td class= "name"><?= $result["name"]; ?></td>
-                                <td><?= $result["size"]; ?></td>
-                                <td><?= $result["avghours"]; ?></td>
-                                <td><?= $result["comp"]; ?></td>
-                                <td><?= $result["leadership"]; ?></td>
-                                <td><?= $result["deadline"];?></td>
+                                <td class="name filterable-cell"><?= $result["name"]; ?></td>
+                                <td class="filterable-cell"><?= $result["size"]; ?></td>
+                                <td class="filterable-cell"><?= $result["avghours"]; ?></td>
+                                <td class="filterable-cell"><?= $result["comp"]; ?></td>
+                                <td class="filterable-cell"><?= $result["leadership"]; ?></td>
+                                <td class="filterable-cell"><?= $result["deadline"];?></td>
                             </tr>
                     <?php } } ?>
                     <tr class = "clickableRow" href="#" data-toggle="modal" data-target="#basicModal">
-                        <td class= "name">CS50</td>
-                        <td>CS50CS50</td>
-                        <td>CS50CS50CS50</td>
-                        <td>CS50CS50</td>
-                        <td>CS50</td>
-                        <td>CS50CS50CS50CS50</td>
+                        <td class="name filterable-cell">CS50</td>
+                        <td class="filterable-cell">CS50CS50</td>
+                        <td class="filterable-cell">CS50CS50CS50</td>
+                        <td class="filterable-cell">CS50CS50</td>
+                        <td class="filterable-cell">>CS50</td>
+                        <td class="filterable-cell">CS50CS50CS50CS50</td>
                     </tr>     
                 </tbody>
-            </div>
         </table>
         <script>sortable.init();</script>
         
